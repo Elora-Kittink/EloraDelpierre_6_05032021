@@ -1,0 +1,213 @@
+/*------------------------------------- INDEX ----------------------------------*/
+body {
+  font-family: "DM Sans", sans-serif;
+  width: 100%;
+}
+
+.fisheye__logo {
+  width: 200px;
+  height: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#body__index header {
+  display: flex;
+}
+#body__index header nav {
+  width: 500px;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+#body__index header nav a {
+  background-color: #DB8876;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+#body__index header nav .nav__hashtag {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 12px;
+}
+#body__index header nav .nav__hashtag p {
+  border: 0.5px solid #C4C4C4;
+  border-radius: 11px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #901C1C;
+}
+
+.main__index {
+  position: relative;
+  margin-top: 60px;
+}
+.main__index h1 {
+  font-size: 36px;
+  font-weight: 400;
+  color: #901C1C;
+  position: absolute;
+  top: -130px;
+  right: 117px;
+}
+.main__index .flex {
+  height: 950px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: stretch;
+}
+.main__index .flex .photographe {
+  width: 500px;
+}
+.main__index .flex .photographe img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid transparent;
+  border-radius: 200px;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+}
+.main__index .flex .photographe__name {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 500;
+  color: #D3573C;
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+.main__index .flex .photographe__location {
+  text-align: center;
+  font-size: 13px;
+  color: #901C1C;
+  margin: 2px;
+}
+.main__index .flex .photographe__style {
+  text-align: center;
+  font-size: 10px;
+  margin: 2px;
+}
+.main__index .flex .photographe__price {
+  text-align: center;
+  font-size: 9px;
+  color: #757575;
+  margin: 2px;
+}
+.main__index .flex .photographe__hashtag {
+  text-align: center;
+}
+.main__index .flex .photographe__hashtag p {
+  display: inline;
+  font-size: 12px;
+  font-weight: 500;
+  color: #901C1C;
+  border: 0.5px solid #C4C4C4;
+  border-radius: 11px;
+  box-sizing: border-box;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/*------------------------------PHOTOGRAPHE PAGE--------------------------------*/
+.body__profile {
+  height: 5000px;
+}
+.body__profile header {
+  display: flex;
+  justify-content: flex-start;
+}
+.body__profile .photographe {
+  display: flex;
+  justify-content: space-between;
+  width: 1240px;
+  height: 313px;
+  background-color: #FAFAFA;
+  margin: auto;
+}
+.body__profile .photographe__profile__name {
+  font-weight: 400;
+  font-size: 64px;
+  color: #D3573C;
+}
+.body__profile .photographe__profile__location {
+  font-weight: 400;
+  font-size: 24px;
+  color: #901C1C;
+}
+.body__profile .photographe__profile__style {
+  font-weight: 400;
+  font-size: 18px;
+  color: #525252;
+}
+.body__profile .photographe__profile__hashtag {
+  display: flex;
+}
+.body__profile .photographe__profile__hashtag p {
+  border: 0.5px solid #C4C4C4;
+  border-radius: 12px;
+  color: #901C1C;
+  font-weight: 500;
+  font-size: 18px;
+}
+.body__profile .photographe button {
+  background-color: #901C1C;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  width: 170px;
+  height: 69px;
+}
+.body__profile .photographe img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 200px;
+}
+.body__profile .main__profile .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.body__profile .main__profile .flex .media__img {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+}
+.body__profile .main__profile .flex .media__text {
+  display: flex;
+  justify-content: space-between;
+}
+.body__profile .main__profile .flex .media__text__title {
+  font-weight: 400;
+  font-size: 24px;
+  color: #901C1C;
+}
+.body__profile .main__profile .flex .media__text__price {
+  font-weight: 500;
+  font-size: 24px;
+  color: #901C1C;
+}
+.body__profile .main__profile .flex .media__text__like {
+  font-weight: 500;
+  font-size: 24px;
+  color: #901C1C;
+}
+.body__profile .footer__profile {
+  display: flex;
+  justify-content: space-between;
+  background-color: #D3573C;
+  color: black;
+  width: 376px;
+  height: 89px;
+}
+
+/*# sourceMappingURL=style.css.map */

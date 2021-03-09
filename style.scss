@@ -1,0 +1,234 @@
+$primary: #901C1C;
+$secondary: #D3573C;
+$greylight: #FAFAFA;
+$greydrak: #525252;
+
+/*------------------------------------- INDEX ----------------------------------*/
+
+body {
+    font-family: "DM Sans", sans-serif;
+    width: 100%;
+    
+}
+
+.fisheye__logo {
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#body__index {
+    header {
+        display: flex;
+        nav {
+            width: 500px;
+            margin-left: 50px;
+            margin-right: 50px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            a {
+                background-color: #DB8876;
+                color: black;
+                text-decoration: none;
+                border-radius: 5px;
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+            .nav__hashtag {
+                display: flex;
+                justify-content: space-between;
+                font-weight: 500;
+                font-size: 12px;
+                p {
+                    border: 0.5px solid #C4C4C4;
+                    border-radius: 11px;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+
+.main__index {
+    position: relative;
+    margin-top: 60px;
+    h1 {
+        font-size: 36px;
+        font-weight: 400;
+        color: $primary;
+        position: absolute;
+        top: -130px;
+        right: 117px;
+    }
+    .flex {
+        height: 950px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: stretch;
+        .photographe {
+            width: 500px;
+            img {
+                width: 200px;
+                height: 200px;
+                border: 1px solid transparent;
+                border-radius: 200px;
+                object-fit: cover;
+                margin: auto;
+                display: block;
+            }
+            &__name {
+                text-align: center;
+                font-size: 36px;
+                font-weight: 500;
+                color: $secondary;
+                margin-top: 20px;
+                margin-bottom: 2px;
+            }
+            &__location {
+                text-align: center;
+                font-size: 13px;
+                color: $primary;
+                margin: 2px;
+            }
+            &__style {
+                text-align: center;
+                font-size: 10px;
+                margin: 2px;
+            }
+            &__price {
+                text-align: center;
+                font-size: 9px;
+                color: #757575;
+                margin: 2px;
+            }
+            &__hashtag {
+                text-align: center;
+                p {
+                    
+                    display: inline;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: $primary;
+                    border: 0.5px solid #C4C4C4;
+                    border-radius: 11px;
+                    box-sizing: border-box;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                }
+            } 
+        }
+    }
+}
+
+/*------------------------------PHOTOGRAPHE PAGE--------------------------------*/
+
+
+.body__profile {
+    height: 5000px;
+    header {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .photographe {
+        display: flex;
+        justify-content: space-between;
+        width: 1240px;
+        height: 313px;
+        background-color: $greylight;
+        margin: auto;
+        &__profile {
+            &__name {
+                font-weight: 400;
+                font-size: 64px;
+                color: $secondary;
+            }
+            &__location {
+                font-weight: 400;
+                font-size: 24px;
+                color: $primary;
+            }
+            &__style {
+                font-weight: 400;
+                font-size: 18px;
+                color: $greydrak;
+            }
+            &__hashtag {
+                display: flex;
+                p {
+                    border: 0.5px solid #C4C4C4;
+                    border-radius: 12px;
+                    color: $primary;
+                    font-weight: 500;
+                    font-size: 18px;
+                }
+            }
+        }
+        button {
+            background-color: $primary;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            width: 170px;
+            height: 69px;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 200px;
+        }
+    }
+    .sort {
+
+    }
+    .main__profile {
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .media {
+                &__img {
+                    width: 350px;
+                    height: 300px;
+                    object-fit: cover;
+                }
+                &__text {
+                    display: flex;
+                    justify-content: space-between;
+                    &__title {
+                        font-weight: 400;
+                        font-size: 24px;
+                        color: $primary;
+                    }
+                    &__price {
+                        font-weight: 500;
+                        font-size: 24px;
+                        color: $primary;
+                    }
+                    &__like {
+                        font-weight: 500;
+                        font-size: 24px;
+                        color: $primary;
+                    }
+                }
+                
+            }
+        }
+    }
+    .footer__profile {
+        display: flex;
+        justify-content: space-between;
+        background-color: $secondary;
+        color: black;
+        width: 376px;
+        height: 89px;
+    }
+}
