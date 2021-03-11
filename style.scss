@@ -67,13 +67,12 @@ body {
         top: -130px;
         right: 117px;
     }
-    .flex {
-        height: 950px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-content: stretch;
-        .photographe {
+    .grid {
+        /*height: 950px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 20px;*/
+        #photographer {
             width: 500px;
             img {
                 width: 200px;

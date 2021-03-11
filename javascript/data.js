@@ -67,7 +67,7 @@ export const data = {
       alt: "Marcel Nikolic portrait",
     },
   ],
-  media: [
+  media: [  /*-------------------------------------------------------------*/
     {
       id: 342550,
       photographerId: 82,
