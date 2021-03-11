@@ -59,15 +59,15 @@ body {
   right: 117px;
 }
 .main__index .grid {
-  /*height: 950px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 20px;*/
+  height: 950px;
 }
 .main__index .grid #photographer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
   width: 500px;
 }
-.main__index .grid #photographer img {
+.main__index .grid #photographer .photographer_portrait {
   width: 200px;
   height: 200px;
   border: 1px solid transparent;
@@ -76,7 +76,7 @@ body {
   margin: auto;
   display: block;
 }
-.main__index .grid #photographer__name {
+.main__index .grid #photographer .photographer_name {
   text-align: center;
   font-size: 36px;
   font-weight: 500;
@@ -84,27 +84,33 @@ body {
   margin-top: 20px;
   margin-bottom: 2px;
 }
-.main__index .grid #photographer__location {
+.main__index .grid #photographer .photographer_city {
   text-align: center;
   font-size: 13px;
   color: #901C1C;
   margin: 2px;
 }
-.main__index .grid #photographer__style {
+.main__index .grid #photographer .photographer_country {
+  text-align: center;
+  font-size: 13px;
+  color: #901C1C;
+  margin: 2px;
+}
+.main__index .grid #photographer .photographer_tagline {
   text-align: center;
   font-size: 10px;
   margin: 2px;
 }
-.main__index .grid #photographer__price {
+.main__index .grid #photographer .photographer_price {
   text-align: center;
   font-size: 9px;
   color: #757575;
   margin: 2px;
 }
-.main__index .grid #photographer__hashtag {
+.main__index .grid #photographer .photographer_tags {
   text-align: center;
 }
-.main__index .grid #photographer__hashtag p {
+.main__index .grid #photographer .photographer_tags a {
   display: inline;
   font-size: 12px;
   font-weight: 500;

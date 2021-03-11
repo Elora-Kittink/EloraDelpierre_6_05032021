@@ -68,13 +68,13 @@ body {
         right: 117px;
     }
     .grid {
-        /*height: 950px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-column-gap: 20px;*/
+        height: 950px;        
         #photographer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-column-gap: 20px;
             width: 500px;
-            img {
+            .photographer_portrait {
                 width: 200px;
                 height: 200px;
                 border: 1px solid transparent;
@@ -83,7 +83,7 @@ body {
                 margin: auto;
                 display: block;
             }
-            &__name {
+            .photographer_name {
                 text-align: center;
                 font-size: 36px;
                 font-weight: 500;
@@ -91,26 +91,32 @@ body {
                 margin-top: 20px;
                 margin-bottom: 2px;
             }
-            &__location {
+            .photographer_city {
                 text-align: center;
                 font-size: 13px;
                 color: $primary;
                 margin: 2px;
             }
-            &__style {
+            .photographer_country {
+                text-align: center;
+                font-size: 13px;
+                color: $primary;
+                margin: 2px;
+            }
+            .photographer_tagline {
                 text-align: center;
                 font-size: 10px;
                 margin: 2px;
             }
-            &__price {
+            .photographer_price {
                 text-align: center;
                 font-size: 9px;
                 color: #757575;
                 margin: 2px;
             }
-            &__hashtag {
+            .photographer_tags {
                 text-align: center;
-                p {
+                a {
                     
                     display: inline;
                     font-size: 12px;
