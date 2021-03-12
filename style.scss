@@ -67,12 +67,12 @@ body {
         top: -130px;
         right: 117px;
     }
-    .grid {
-        height: 950px;        
-        #photographer {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-column-gap: 20px;
+    #photographer_grid {
+        height: 950px;  
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 20px;      
+        .photographer_cell {            
             width: 500px;
             .photographer_portrait {
                 width: 200px;
@@ -116,8 +116,7 @@ body {
             }
             .photographer_tags {
                 text-align: center;
-                a {
-                    
+                a {                   
                     display: inline;
                     font-size: 12px;
                     font-weight: 500;
