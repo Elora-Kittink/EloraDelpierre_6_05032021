@@ -25,7 +25,7 @@ function completePhotographerProfile (photographerSelected) {
 }
  
 
-function displayGallery() {
+export function displayGallery() {
     const url = window.location.search;
     const urlParams = new URLSearchParams(url);
     const id = urlParams.get("id");
@@ -34,18 +34,39 @@ function displayGallery() {
     const gallery = document.getElementById("gallery");
     for (let media of mediaArray) {
         if (media.photographerId === idNumber) {
-            // fonction addMachinInGallery
+            const galleryMedia = document.createElement("div");
+            galleryMedia.setAttribute("class", "gallery__media");
+            gallery.appendChild(galleryMedia);
+            addImageInGalleryMedia(media.image, galleryMedia, media.alt);
+            addTitleInGalleryMedia(media.alt, galleryMedia);
+            addPriceInGalleryMedia(media.price, galleryMedia);
         }
     }
 }
 
-function addImageInGalleryCell (image, galleryCell, alt) {
+function addImageInGalleryMedia (image, galleryMedia, alt) {
     const mediaImage = document.createElement("img");
-    mediaImage.setAttribute("scr", "./fisheye_photos/ID_Photos/")
+    mediaImage.setAttribute("src", "./fisheye_photos/media/" + image);
+    mediaImage.setAttribute("alt", alt);
+    mediaImage.setAttribute("class", "gallery__media__image");
+    galleryMedia.appendChild(mediaImage);
 }
 
+function addTitleInGalleryMedia (alt, galleryMedia) {
+    const mediaTitle = document.createElement("div");
+    mediaTitle.setAttribute("class", "gallery__media__title");
+    
+    galleryMedia.appendChild(mediaTitle);
+    mediaTitle.innerHTML = alt;
+    mediaTitle.setAttribute("translate", "yes");
+}
 
-
+function addPriceInGalleryMedia (price, galleryMedia) {
+    const mediaPrice = document.createElement("div");
+    mediaPrice.setAttribute("class", "gallery__media__price");
+    galleryMedia.appendChild(mediaPrice);
+    mediaPrice.innerHTML = price + "€";
+}
 
 
 
