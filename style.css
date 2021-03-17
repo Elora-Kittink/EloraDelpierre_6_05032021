@@ -58,16 +58,16 @@ body {
   top: -130px;
   right: 117px;
 }
-.main__index #photographer_grid {
+.main__index #photographer__grid {
   height: 950px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
 }
-.main__index #photographer_grid .photographer_cell {
+.main__index #photographer__grid .photographer__cell {
   width: 500px;
 }
-.main__index #photographer_grid .photographer_cell .photographer_portrait {
+.main__index #photographer__grid .photographer__cell .photographer__portrait {
   width: 200px;
   height: 200px;
   border: 1px solid transparent;
@@ -76,41 +76,44 @@ body {
   margin: auto;
   display: block;
 }
-.main__index #photographer_grid .photographer_cell .photographer_name {
+.main__index #photographer__grid .photographer__cell .photographer__name {
   text-align: center;
-  font-size: 36px;
-  font-weight: 500;
-  color: #D3573C;
   margin-top: 20px;
   margin-bottom: 2px;
 }
-.main__index #photographer_grid .photographer_cell .photographer_city {
+.main__index #photographer__grid .photographer__cell .photographer__name a {
+  text-decoration: none;
+  font-size: 36px;
+  font-weight: 500;
+  color: #D3573C;
+}
+.main__index #photographer__grid .photographer__cell .photographer__city {
   text-align: center;
   font-size: 13px;
   color: #901C1C;
   margin: 2px;
 }
-.main__index #photographer_grid .photographer_cell .photographer_country {
+.main__index #photographer__grid .photographer__cell .photographer__country {
   text-align: center;
   font-size: 13px;
   color: #901C1C;
   margin: 2px;
 }
-.main__index #photographer_grid .photographer_cell .photographer_tagline {
+.main__index #photographer__grid .photographer__cell .photographer__tagline {
   text-align: center;
   font-size: 10px;
   margin: 2px;
 }
-.main__index #photographer_grid .photographer_cell .photographer_price {
+.main__index #photographer__grid .photographer__cell .photographer__price {
   text-align: center;
   font-size: 9px;
   color: #757575;
   margin: 2px;
 }
-.main__index #photographer_grid .photographer_cell .photographer_tags {
+.main__index #photographer__grid .photographer__cell .photographer__tags {
   text-align: center;
 }
-.main__index #photographer_grid .photographer_cell .photographer_tags a {
+.main__index #photographer__grid .photographer__cell .photographer__tags a {
   display: inline;
   font-size: 12px;
   font-weight: 500;
@@ -124,46 +127,50 @@ body {
 
 /*------------------------------PHOTOGRAPHE PAGE--------------------------------*/
 .body__profile {
+  width: 1440px;
   height: 5000px;
 }
 .body__profile header {
   display: flex;
   justify-content: flex-start;
 }
-.body__profile .photographe {
-  display: flex;
-  justify-content: space-between;
+.body__profile main #photographer__profile {
   width: 1240px;
   height: 313px;
   background-color: #FAFAFA;
   margin: auto;
 }
-.body__profile .photographe__profile__name {
+.body__profile main #photographer__profile__name {
   font-weight: 400;
   font-size: 64px;
   color: #D3573C;
 }
-.body__profile .photographe__profile__location {
+.body__profile main #photographer__profile__city {
   font-weight: 400;
   font-size: 24px;
   color: #901C1C;
 }
-.body__profile .photographe__profile__style {
+.body__profile main #photographer__profile__country {
+  font-weight: 400;
+  font-size: 24px;
+  color: #901C1C;
+}
+.body__profile main #photographer__profile__tagline {
   font-weight: 400;
   font-size: 18px;
   color: #525252;
 }
-.body__profile .photographe__profile__hashtag {
+.body__profile main #photographer__profile__tags {
   display: flex;
 }
-.body__profile .photographe__profile__hashtag p {
+.body__profile main #photographer__profile__tags p {
   border: 0.5px solid #C4C4C4;
   border-radius: 12px;
   color: #901C1C;
   font-weight: 500;
   font-size: 18px;
 }
-.body__profile .photographe button {
+.body__profile main #photographer__profile button {
   background-color: #901C1C;
   color: white;
   font-weight: 700;
@@ -171,7 +178,7 @@ body {
   width: 170px;
   height: 69px;
 }
-.body__profile .photographe img {
+.body__profile main #photographer__profile img {
   width: 200px;
   height: 200px;
   object-fit: cover;

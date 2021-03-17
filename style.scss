@@ -67,14 +67,14 @@ body {
         top: -130px;
         right: 117px;
     }
-    #photographer_grid {
+    #photographer__grid {
         height: 950px;  
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 20px;      
-        .photographer_cell {            
+        .photographer__cell {            
             width: 500px;
-            .photographer_portrait {
+            .photographer__portrait {
                 width: 200px;
                 height: 200px;
                 border: 1px solid transparent;
@@ -83,38 +83,41 @@ body {
                 margin: auto;
                 display: block;
             }
-            .photographer_name {
+            .photographer__name {
                 text-align: center;
-                font-size: 36px;
-                font-weight: 500;
-                color: $secondary;
                 margin-top: 20px;
                 margin-bottom: 2px;
+                a {
+                    text-decoration: none;
+                    font-size: 36px;
+                    font-weight: 500;
+                    color: $secondary;
+                }
             }
-            .photographer_city {
+            .photographer__city {
                 text-align: center;
                 font-size: 13px;
                 color: $primary;
                 margin: 2px;
             }
-            .photographer_country {
+            .photographer__country {
                 text-align: center;
                 font-size: 13px;
                 color: $primary;
                 margin: 2px;
             }
-            .photographer_tagline {
+            .photographer__tagline {
                 text-align: center;
                 font-size: 10px;
                 margin: 2px;
             }
-            .photographer_price {
+            .photographer__price {
                 text-align: center;
                 font-size: 9px;
                 color: #757575;
                 margin: 2px;
             }
-            .photographer_tags {
+            .photographer__tags {
                 text-align: center;
                 a {                   
                     display: inline;
@@ -136,60 +139,73 @@ body {
 
 
 .body__profile {
+    width: 1440px;
     height: 5000px;
     header {
         display: flex;
         justify-content: flex-start;
     }
-    .photographe {
-        display: flex;
-        justify-content: space-between;
-        width: 1240px;
-        height: 313px;
-        background-color: $greylight;
-        margin: auto;
-        &__profile {
-            &__name {
-                font-weight: 400;
-                font-size: 64px;
-                color: $secondary;
-            }
-            &__location {
-                font-weight: 400;
-                font-size: 24px;
-                color: $primary;
-            }
-            &__style {
-                font-weight: 400;
-                font-size: 18px;
-                color: $greydrak;
-            }
-            &__hashtag {
-                display: flex;
-                p {
-                    border: 0.5px solid #C4C4C4;
-                    border-radius: 12px;
-                    color: $primary;
-                    font-weight: 500;
-                    font-size: 18px;
+    main {
+        #photographer__profile {
+            width: 1240px;
+            height: 313px;
+            background-color: $greylight;
+            margin: auto;      
+                &__name {
+                    font-weight: 400;
+                    font-size: 64px;
+                    color: $secondary;
+                    
                 }
+                &__city {
+                    font-weight: 400;
+                    font-size: 24px;
+                    color: $primary;
+                    
+                }
+                &__country {
+                    font-weight: 400;
+                    font-size: 24px;
+                    color: $primary;
+                    
+                }
+                &__tagline {
+                    font-weight: 400;
+                    font-size: 18px;
+                    color: $greydrak;
+                    
+                }
+                &__tags {
+                    display: flex;
+                    
+                    p {
+                        border: 0.5px solid #C4C4C4;
+                        border-radius: 12px;
+                        color: $primary;
+                        font-weight: 500;
+                        font-size: 18px;
+                    }
+                }
+            
+            button {
+                background-color: $primary;
+                color: white;
+                font-weight: 700;
+                font-size: 20px;
+                width: 170px;
+                height: 69px;
+                
             }
-        }
-        button {
-            background-color: $primary;
-            color: white;
-            font-weight: 700;
-            font-size: 20px;
-            width: 170px;
-            height: 69px;
-        }
-        img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 200px;
+            img {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 200px;
+                
+            }
         }
     }
+    
     .sort {
 
     }
