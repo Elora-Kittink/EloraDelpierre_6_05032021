@@ -221,43 +221,24 @@ body {
         }
     }
     
-    .sort {
+    // .sort {
 
-    }
-    .main__profile {
-        .flex {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            .media {
-                &__img {
-                    width: 350px;
-                    height: 300px;
-                    object-fit: cover;
-                }
-                &__text {
-                    display: flex;
-                    justify-content: space-between;
-                    &__title {
-                        font-weight: 400;
-                        font-size: 24px;
-                        color: $primary;
-                    }
-                    &__price {
-                        font-weight: 500;
-                        font-size: 24px;
-                        color: $primary;
-                    }
-                    &__like {
-                        font-weight: 500;
-                        font-size: 24px;
-                        color: $primary;
-                    }
-                }
-                
-            }
+    // }
+    
+    #lightbox {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        display: none;
+        &__body {
+            background-color: white;
         }
     }
+
     .footer__profile {
         display: flex;
         justify-content: space-between;

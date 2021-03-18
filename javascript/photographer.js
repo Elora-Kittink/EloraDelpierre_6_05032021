@@ -37,28 +37,32 @@ export function displayGallery() {
             const galleryMedia = document.createElement("div");
             galleryMedia.setAttribute("class", "gallery__media");
             gallery.appendChild(galleryMedia);
-            addImageInGalleryMedia(media.image, galleryMedia, media.alt);
+            addImageInGalleryMedia(media.image, galleryMedia, media.alt, media.id);
             addTitleInGalleryMedia(media.alt, galleryMedia);
             addPriceInGalleryMedia(media.price, galleryMedia);
+            addDateInGalleryMedia(media.date, galleryMedia);
+            addLikesInGalleryMedia(media.likes, galleryMedia);
         }
     }
 }
 
-function addImageInGalleryMedia (image, galleryMedia, alt) {
+function addImageInGalleryMedia (image, galleryMedia, alt, id) {
+    
     const mediaImage = document.createElement("img");
     mediaImage.setAttribute("src", "./fisheye_photos/media/" + image);
     mediaImage.setAttribute("alt", alt);
     mediaImage.setAttribute("class", "gallery__media__image");
+    mediaImage.setAttribute("id", id);    
+    mediaImage.setAttribute("onclick", ""); //launchLightbox()
     galleryMedia.appendChild(mediaImage);
 }
 
 function addTitleInGalleryMedia (alt, galleryMedia) {
     const mediaTitle = document.createElement("div");
-    mediaTitle.setAttribute("class", "gallery__media__title");
-    
+    mediaTitle.setAttribute("class", "gallery__media__title");    
     galleryMedia.appendChild(mediaTitle);
     mediaTitle.innerHTML = alt;
-    mediaTitle.setAttribute("translate", "yes");
+    
 }
 
 function addPriceInGalleryMedia (price, galleryMedia) {
@@ -68,5 +72,28 @@ function addPriceInGalleryMedia (price, galleryMedia) {
     mediaPrice.innerHTML = price + "€";
 }
 
+function addDateInGalleryMedia (date, galleryMedia) {
+    const mediaDate = document.createElement("time");
+    mediaDate.setAttribute("datetime", date);
+    galleryMedia.appendChild(mediaDate);
+}
 
+function addLikesInGalleryMedia (likes, galleryMedia) {
+    let counter = likes;
+    function counterIncrement() {
+        counter++
+        mediaLikes.innerHTML = counter;
+    } 
+    const mediaLikes = document.createElement("button");
+    mediaLikes.setAttribute("onclick", counterIncrement());
+    mediaLikes.setAttribute("class", "gallery__media__likes");        
+    galleryMedia.appendChild(mediaLikes);
+    const mediaHeart = document.createElement("i");
+    mediaHeart.setAttribute("class", "fas fa-heart");
+    mediaLikes.appendChild(mediaHeart);
+}
+
+function addIdInGalleryMedia (id,galleryMedia) {
+    const mediaId = document.createElement
+}
 

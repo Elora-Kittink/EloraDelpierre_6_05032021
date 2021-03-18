@@ -23,11 +23,25 @@
         </section>
         <section class="sort">   
             <label for="">Trier par</label>
-            <select name="" id="">Date</select>
+            <select id="sort__select" name="">
+                <option value="popularity">Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Titre</option>
+            </select>
         </section>
         <section id="gallery">
-        </section>
+        </section>        
     </main>
+    <div role="dialog" aria-modal="true"
+    aria-hidden="true" id="lightbox">
+        <div role="document" id="lightbox__body">
+            <i id="lightbox__body-closebtn" class="fas fa-times" role="button" onclick="closeLightbox()"></i>
+            <i class="fas fa-chevron-right"></i>
+            <i class="fas fa-chevron-left"></i>
+            <div id="lightbox__body__media"></div>
+            <div id="lightbox__body__title"></div>
+        </div>
+    </div>
     <script src="./javascript/index.js" type="module"></script>
     <footer class="footer__profile">
         <div class="footer__profile__like">
