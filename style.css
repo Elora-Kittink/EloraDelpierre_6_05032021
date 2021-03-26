@@ -87,7 +87,7 @@ body {
   font-weight: 500;
   color: #D3573C;
 }
-.main__index #photographer__grid .photographer__cell .photographer__city {
+.main__index #photographer__grid .photographer__cell .photographer__location {
   text-align: center;
   font-size: 13px;
   color: #901C1C;
@@ -131,6 +131,9 @@ body {
   height: 5000px;
   margin-left: auto;
   margin-right: auto;
+  /*----------------------------LIGHTBOX------------------------------*/
+  /*------------------------------FORMULAIRE CONTACT-------------------------*/
+  /*---------------------------------FOOTER-------------------------------------*/
 }
 .body__profile header {
   display: flex;
@@ -141,29 +144,41 @@ body {
   height: 313px;
   background-color: #FAFAFA;
   margin: auto;
+  position: relative;
 }
 .body__profile main #photographer__profile__name {
   font-weight: 400;
   font-size: 64px;
   color: #D3573C;
+  margin: 0px;
+  position: absolute;
+  top: 56px;
+  left: 50px;
 }
-.body__profile main #photographer__profile__city {
+.body__profile main #photographer__profile__location {
   font-weight: 400;
   font-size: 24px;
   color: #901C1C;
-}
-.body__profile main #photographer__profile__country {
-  font-weight: 400;
-  font-size: 24px;
-  color: #901C1C;
+  margin: 0px;
+  position: absolute;
+  top: 139px;
+  left: 50px;
 }
 .body__profile main #photographer__profile__tagline {
   font-weight: 400;
   font-size: 18px;
   color: #525252;
+  margin: 0px;
+  position: absolute;
+  top: 189px;
+  left: 50px;
 }
 .body__profile main #photographer__profile__tags {
   display: flex;
+  margin: 0px;
+  position: absolute;
+  top: 231px;
+  left: 47px;
 }
 .body__profile main #photographer__profile__tags p {
   border: 0.5px solid #C4C4C4;
@@ -175,16 +190,25 @@ body {
 .body__profile main #photographer__profile button {
   background-color: #901C1C;
   color: white;
+  margin: 0px;
   font-weight: 700;
   font-size: 20px;
   width: 170px;
   height: 69px;
+  position: absolute;
+  top: 63px;
+  left: 450px;
+  border-radius: 5px;
+  border: transparent;
 }
 .body__profile main #photographer__profile img {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 200px;
+  position: absolute;
+  top: 60px;
+  right: 50px;
 }
 .body__profile main #gallery {
   display: grid;
@@ -208,6 +232,101 @@ body {
 }
 .body__profile #lightbox__body {
   background-color: white;
+}
+.body__profile #lightbox__body__media-img {
+  height: 500px;
+  width: 500px;
+}
+.body__profile #contact {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  display: none;
+}
+.body__profile #contact__form {
+  position: relative;
+  width: 669px;
+  height: 900px;
+  background-color: #DB8876;
+  box-shadow: 5px 5px black;
+  margin: auto;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+}
+.body__profile #contact__form h1 {
+  font-size: 64px;
+  font-weight: 400;
+}
+.body__profile #contact__form__photographer {
+  font-size: 64px;
+  font-weight: 400;
+}
+.body__profile #contact__form__closebtn {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  font-size: 42px;
+  color: white;
+}
+.body__profile #contact__form__firstname__label {
+  font-size: 36px;
+}
+.body__profile #contact__form__firstname__input {
+  font-size: 36px;
+  width: 599px;
+  height: 68px;
+  font-weight: 400;
+  border-radius: 5px;
+  border: transparent;
+}
+.body__profile #contact__form__lastname__label {
+  font-size: 36px;
+}
+.body__profile #contact__form__lastname__input {
+  font-size: 36px;
+  width: 599px;
+  height: 68px;
+  border-radius: 5px;
+  font-weight: 400;
+  border: transparent;
+}
+.body__profile #contact__form__email__label {
+  font-size: 36px;
+}
+.body__profile #contact__form__email__input {
+  font-size: 36px;
+  width: 599px;
+  height: 68px;
+  border-radius: 5px;
+  font-weight: 400;
+  border: transparent;
+}
+.body__profile #contact__form__message__label {
+  font-size: 36px;
+}
+.body__profile #contact__form__message__input {
+  font-size: 36px;
+  width: 599px;
+  height: 170px;
+  border-radius: 5px;
+  font-weight: 400;
+  border: transparent;
+}
+.body__profile #contact__form__submitbtn {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: #911C1C;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  margin-top: 26px;
+  border: transparent;
 }
 .body__profile .footer__profile {
   display: flex;

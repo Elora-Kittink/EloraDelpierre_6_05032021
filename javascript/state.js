@@ -1,0 +1,4 @@
+const state = {
+    pictureId : null,
+
+}

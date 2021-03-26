@@ -94,7 +94,7 @@ body {
                     color: $secondary;
                 }
             }
-            .photographer__city {
+            .photographer__location {
                 text-align: center;
                 font-size: 13px;
                 color: $primary;
@@ -153,33 +153,42 @@ body {
             width: 1240px;
             height: 313px;
             background-color: $greylight;
-            margin: auto;      
+            margin: auto;   
+            position: relative;   
                 &__name {
                     font-weight: 400;
                     font-size: 64px;
                     color: $secondary;
-                    
+                    margin: 0px;
+                    position: absolute;
+                    top: 56px;
+                    left: 50px;                    
                 }
-                &__city {
+                &__location {
                     font-weight: 400;
                     font-size: 24px;
                     color: $primary;
-                    
-                }
-                &__country {
-                    font-weight: 400;
-                    font-size: 24px;
-                    color: $primary;
-                    
+                    margin: 0px;
+                    position: absolute;
+                    top: 139px;
+                    left: 50px;
                 }
                 &__tagline {
                     font-weight: 400;
                     font-size: 18px;
                     color: $greydrak;
+                    margin: 0px;
+                    position: absolute;
+                    top: 189px;
+                    left: 50px;
                     
                 }
                 &__tags {
                     display: flex;
+                    margin: 0px;
+                    position: absolute;
+                    top: 231px;
+                    left: 47px;
                     
                     p {
                         border: 0.5px solid #C4C4C4;
@@ -193,10 +202,16 @@ body {
             button {
                 background-color: $primary;
                 color: white;
+                margin: 0px;
                 font-weight: 700;
                 font-size: 20px;
                 width: 170px;
                 height: 69px;
+                position: absolute;
+                top: 63px;
+                left: 450px;
+                border-radius: 5px;
+                border: transparent;
                 
             }
             img {
@@ -204,7 +219,9 @@ body {
                 height: 200px;
                 object-fit: cover;
                 border-radius: 200px;
-                
+                position: absolute;
+                top: 60px;
+                right: 50px;
             }
         }
         #gallery {
@@ -221,9 +238,7 @@ body {
         }
     }
     
-    // .sort {
-
-    // }
+    /*----------------------------LIGHTBOX------------------------------*/
     
     #lightbox {
         position: fixed;
@@ -236,9 +251,112 @@ body {
         display: none;
         &__body {
             background-color: white;
-        }
+        }         
     }
 
+    #lightbox__body__media-img {
+        height: 500px;
+        width: 500px;
+    }
+
+/*------------------------------FORMULAIRE CONTACT-------------------------*/
+
+#contact {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    display: none;    
+    &__form {
+        position: relative;
+        width: 669px;
+        height: 900px;
+        background-color: #DB8876;
+        box-shadow: 5px 5px black;
+        margin: auto;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        h1 {
+            font-size: 64px;
+            font-weight: 400;
+        }
+        &__photographer {
+            font-size: 64px;
+            font-weight: 400;
+        }
+        &__closebtn {
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            font-size: 42px;
+            color: white;
+        }
+        &__firstname__label {
+            font-size: 36px;
+        }
+        &__firstname__input {
+            font-size: 36px; 
+            width: 599px;
+            height: 68px;
+            font-weight: 400;
+            border-radius: 5px;
+            border: transparent;
+        }
+        &__lastname__label {
+            font-size: 36px;
+        }
+        &__lastname__input {
+            font-size: 36px;
+            width: 599px;
+            height: 68px;
+            border-radius: 5px;
+            font-weight: 400;
+            border: transparent;
+        }
+        &__email__label {
+            font-size: 36px;
+        }
+        &__email__input {
+            font-size: 36px;
+            width: 599px;
+            height: 68px;
+            border-radius: 5px;
+            font-weight: 400;
+            border: transparent;
+        }
+        &__message__label {
+            font-size: 36px;
+        }
+        &__message__input {
+            font-size: 36px;
+            width: 599px;
+            height: 170px;
+            border-radius: 5px;
+            font-weight: 400;
+            border: transparent;
+        }
+        &__submitbtn {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            background-color: #911C1C;
+            width: 170px;
+            height: 69px;
+            border-radius: 5px;
+            margin-top: 26px;
+            border: transparent;
+        }
+    }    
+
+
+}
+
+
+/*---------------------------------FOOTER-------------------------------------*/
     .footer__profile {
         display: flex;
         justify-content: space-between;

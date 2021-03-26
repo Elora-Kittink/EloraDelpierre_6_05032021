@@ -3,6 +3,7 @@ import { displayPhotographers } from "./photographers.js";
 import {displayGallery} from "./photographer.js";
 
 
+
 console.log(window.location.href);
 console.log(window.location.href.includes("photographer.html"));
 
