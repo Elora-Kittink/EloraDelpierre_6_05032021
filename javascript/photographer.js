@@ -136,7 +136,15 @@ function launchForm() {
     containerForm.style.display = "block";
     const closeFormBtn = document.getElementById("contact__form__closebtn");
     closeFormBtn.addEventListener("click", closeForm);
-
+    const submitFormBtn = document.getElementById("contact__form__submitbtn");
+    submitFormBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        console.log(document.getElementById("contact__form__firstname__input").value);
+        console.log(document.getElementById("contact__form__lastname__input").value);
+        console.log(document.getElementById("contact__form__email__input").value);
+        console.log(document.getElementById("contact__form__message__input").value);
+        closeForm();
+    })
 }
 
 function closeForm() {

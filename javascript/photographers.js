@@ -5,7 +5,8 @@ import {data} from "./data.js";
 
 export function displayPhotographers() {
     console.log("display");
-    const photographersArray = data.photographers; 
+    const tag = undefined;
+    const photographersArray = data.photographers.filter((element) => {return tag=== undefined || element.tags.includes(tag)}); 
     const photographerGrid = document.getElementById("photographer__grid");
     for (let photographer of photographersArray) {
         const photographerId = photographer.id;
@@ -22,6 +23,8 @@ export function displayPhotographers() {
         addTagsInPhotographerCell(photographer.tags, photographerCell)
     }
 }
+
+
 
 function addPortraitInPhotographerCell(portrait, photographerCell, alt) {
     const photographerPortrait = document.createElement("img");
