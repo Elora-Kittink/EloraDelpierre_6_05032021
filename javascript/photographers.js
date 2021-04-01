@@ -1,12 +1,13 @@
 import {data} from "./data.js";
 
-// attributs de données : utiliser dataset pour recuperer les data-id?
+let allTags = ["portrait", "art", "fashion", "architecture", "travel", "sport", "animals", "events"]
 
 
-export function displayPhotographers() {
-    console.log("display");
-    const tag = undefined;
-    const photographersArray = data.photographers.filter((element) => {return tag=== undefined || element.tags.includes(tag)}); 
+export function displayPhotographers() {    
+    const url= window.location.search; 
+    const urlParams = new URLSearchParams(url);
+    const tag = urlParams.get("tag");
+    const photographersArray = data.photographers.filter((element) => {return tag === null || element.tags.includes(tag)}); 
     const photographerGrid = document.getElementById("photographer__grid");
     for (let photographer of photographersArray) {
         const photographerId = photographer.id;
