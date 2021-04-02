@@ -35,10 +35,36 @@ export function displayGallery() {
     const urlParams = new URLSearchParams(url); /*outil de recherche dans url */
     const id = urlParams.get("id"); /*recuperer ce qu'il y a apres "id" */
     const idNumber = parseInt(id, 10); /*transformer string en number base 10 */
-    const mediaArray = data.media.filter( (media) => { /*recupérer tous les objets media dont le photographerId est égale à l'id de l'url */
+    let mediaArray = data.media.filter( (media) => { /*recupérer tous les objets media dont le photographerId est égale à l'id de l'url */
         return media.photographerId === idNumber
     } );
     const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
+    // trier le mediaArray
+    const sortButton = document.querySelector("select");
+    sortButton.addEventListener("change", displayGallery)
+    if (sortButton.value === "popularity") {
+        mediaArray.sort(function(a, b){
+            return b.likes-a.likes
+        })
+    }
+    else if (sortButton.value === "date") {
+        mediaArray.sort(function(a, b){
+            let dateA=new Date(a.date), dateB=new Date(b.date)
+            return dateA-dateB 
+        })
+    }
+    else if (sortButton.value === "title") {
+        mediaArray.sort(function(a, b){
+            let titleA=a.alt.toLowerCase(), titleB=b.alt.toLowerCase()
+            if (titleA < titleB) 
+                return -1 
+            if (titleA > titleB)
+                return 1
+            return 0 
+        })
+    };
+    
     for (let media of mediaArray) {
             const link = document.createElement("a");
             link.setAttribute("href", "#");
@@ -50,7 +76,7 @@ export function displayGallery() {
             link.addEventListener("click", function() {
                 launchLightbox(media.id, media.image, media.photographerId, mediaArray);
             })
-            addImageInGalleryMedia(media.image, link, media.alt, media.id, media.photographerId);
+            addImageInGalleryMedia(media, media.image, link, media.alt, media.id, media.video);
             addTitleInGalleryMedia(media.alt, galleryMedia);
             addPriceInGalleryMedia(media.price, galleryMedia);
             addDateInGalleryMedia(media.date, galleryMedia);
@@ -58,14 +84,26 @@ export function displayGallery() {
     }
 }
 
-function addImageInGalleryMedia (image, link, alt, id, photographerId) {
+function addImageInGalleryMedia (media, image, link, alt, id, video) {
+    if (media.image !== undefined) {
+        const mediaImage = document.createElement("img");
+        mediaImage.setAttribute("src", "./fisheye_photos/media/" + image);
+        mediaImage.setAttribute("alt", alt);
+        mediaImage.setAttribute("class", "gallery__media__image");
+        mediaImage.setAttribute("id", id);
+        link.appendChild(mediaImage);
+    } else if (media.video !== undefined) {
+        const mediaVideo = document.createElement("video");
+        mediaVideo.setAttribute("src", "./fisheye_photos/media/" + video);
+        mediaVideo.setAttribute("type", "video/mp4");
+        mediaVideo.setAttribute("alt", alt);
+        mediaVideo.setAttribute("class", "gallery__media__video");
+        mediaVideo.setAttribute("id", id);
+        mediaVideo.width= "350px";
+        mediaVideo.height= "300px";
+        link.appendChild(mediaVideo);
+    }
     
-    const mediaImage = document.createElement("img");
-    mediaImage.setAttribute("src", "./fisheye_photos/media/" + image);
-    mediaImage.setAttribute("alt", alt);
-    mediaImage.setAttribute("class", "gallery__media__image");
-    mediaImage.setAttribute("id", id);
-    link.appendChild(mediaImage);
 }
 
 function addTitleInGalleryMedia (alt, galleryMedia) {
