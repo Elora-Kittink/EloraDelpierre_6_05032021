@@ -11,9 +11,6 @@ export function displayPhotographer () {
     completePhotographerProfile(photographerSelected)
 }
 
-// let currentMediaArray = data.media.filter((media) => {
-//     return media.image === photographerId
-// });
 
 function completePhotographerProfile (photographerSelected) {
     document.getElementById("photographer__profile__name").textContent = photographerSelected.name;
@@ -82,6 +79,13 @@ export function displayGallery() {
             addDateInGalleryMedia(media.date, galleryMedia);
             addLikesInGalleryMedia(media.likes, galleryMedia);
     }
+    const likesArray = mediaArray.map((media) => {
+        return media.likes;
+    }) ; 
+    console.log(likesArray);
+    const footerTotalLikes = document.getElementById("footer__profile__likes__total");
+    const sum = likesArray.reduce((acc, cur) => acc + cur, 0);
+    footerTotalLikes.innerHTML = sum;
 }
 
 function addImageInGalleryMedia (media, image, link, alt, id, video) {
@@ -141,20 +145,6 @@ function addLikesInGalleryMedia (likes, galleryMedia) {
     mediaHeart.setAttribute("class", "fas fa-heart");
     mediaLikes.appendChild(mediaHeart);
 }
-
-
-
-/*---------------------------------lightbox---------------------------------*/
-
-
-
-
-
-// const currentGallery = document.querySelectorAll(".gallery__media");
-// console.log(currentGallery);
-// const currentGalleryy = array.from("gallery__media");
-
-
   
 
 
@@ -190,3 +180,8 @@ function closeForm() {
     containerForm.style.display = "none";
 }
  
+/*-----------------------TOTAL LIKES---------------------------------*/
+
+function incrementTotalLikes() {
+
+}
