@@ -71,21 +71,16 @@ export function displayGallery() {
             gallery.appendChild(galleryMedia);
             galleryMedia.appendChild(link);
             link.addEventListener("click", function() {
-                launchLightbox(media.id, media.image, media.photographerId, mediaArray);
+                launchLightbox(media.id, media.image, media.video, mediaArray, media.alt);
             })
             addImageInGalleryMedia(media, media.image, link, media.alt, media.id, media.video);
             addTitleInGalleryMedia(media.alt, galleryMedia);
             addPriceInGalleryMedia(media.price, galleryMedia);
             addDateInGalleryMedia(media.date, galleryMedia);
-            addLikesInGalleryMedia(media.likes, galleryMedia);
+            addLikesInGalleryMedia(media.likes, galleryMedia, mediaArray);
     }
-    const likesArray = mediaArray.map((media) => {
-        return media.likes;
-    }) ; 
-    console.log(likesArray);
-    const footerTotalLikes = document.getElementById("footer__profile__likes__total");
-    const sum = likesArray.reduce((acc, cur) => acc + cur, 0);
-    footerTotalLikes.innerHTML = sum;
+    /* incrémenter le total des likes en bas de la page */
+    
 }
 
 function addImageInGalleryMedia (media, image, link, alt, id, video) {
@@ -98,14 +93,14 @@ function addImageInGalleryMedia (media, image, link, alt, id, video) {
         link.appendChild(mediaImage);
     } else if (media.video !== undefined) {
         const mediaVideo = document.createElement("video");
-        mediaVideo.setAttribute("src", "./fisheye_photos/media/" + video);
-        mediaVideo.setAttribute("type", "video/mp4");
+        const mediaVideoSrc = document.createElement("source");
+        mediaVideoSrc.setAttribute("src", "./fisheye_photos/media/" + video);
+        mediaVideoSrc.setAttribute("type", "video/mp4");
         mediaVideo.setAttribute("alt", alt);
         mediaVideo.setAttribute("class", "gallery__media__video");
         mediaVideo.setAttribute("id", id);
-        mediaVideo.width= "350px";
-        mediaVideo.height= "300px";
         link.appendChild(mediaVideo);
+        mediaVideo.appendChild(mediaVideoSrc);
     }
     
 }
@@ -131,11 +126,15 @@ function addDateInGalleryMedia (date, galleryMedia) {
     galleryMedia.appendChild(mediaDate);
 }
 
-function addLikesInGalleryMedia (likes, galleryMedia) {
+function addLikesInGalleryMedia (likes, galleryMedia, mediaArray) {
     let counter = likes;
     function counterIncrement() {
-        counter++
+        counter++;
         mediaLikes.innerHTML = counter;
+        likesArray.push(1);
+        footerTotalLikes.innerHTML = "";
+        const sum = likesArray.reduce((acc, cur) => acc + cur, 0);
+        footerTotalLikes.innerHTML = sum;
     } 
     const mediaLikes = document.createElement("button");
     mediaLikes.onclick = counterIncrement;
@@ -144,17 +143,15 @@ function addLikesInGalleryMedia (likes, galleryMedia) {
     const mediaHeart = document.createElement("i");
     mediaHeart.setAttribute("class", "fas fa-heart");
     mediaLikes.appendChild(mediaHeart);
+    
+    const likesArray = mediaArray.map((media) => {
+        return media.likes;
+    }) ; 
+    const footerTotalLikes = document.getElementById("footer__profile__likes__total");
+    const sum = likesArray.reduce((acc, cur) => acc + cur, 0);
+    footerTotalLikes.innerHTML = sum;
 }
   
-
-
-/*----------------------------image ou video-----------------------------------*/
-
-// function capture(){
-//     var canvas = document.getElementById('canvas');
-//     var video = document.getElementById('video');
-//     canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-// }
 
 /*---------------------------------------FORMULAIRE CONTACT-------------------------------------*/
 
@@ -180,8 +177,4 @@ function closeForm() {
     containerForm.style.display = "none";
 }
  
-/*-----------------------TOTAL LIKES---------------------------------*/
 
-function incrementTotalLikes() {
-
-}

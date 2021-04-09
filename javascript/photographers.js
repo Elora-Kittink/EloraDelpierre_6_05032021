@@ -43,7 +43,6 @@ function addNameInPhotographerCell(name, photographerCell, photographerId) {
     photographerLink.textContent = name;
     photographerLink.setAttribute("data-id", photographerId);
     photographerLink.setAttribute("href", "photographer.html?id=" + photographerId);
-    // photographerLink.setAttribute("onclick","maFutureFonction" + "(" + photographerId + ")" );
     photographerName.appendChild(photographerLink);
 }
     

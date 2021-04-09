@@ -220,6 +220,11 @@ body {
   height: 300px;
   object-fit: cover;
 }
+.body__profile main #gallery .gallery__media__video {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+}
 .body__profile #lightbox {
   position: fixed;
   z-index: 100;
@@ -233,7 +238,11 @@ body {
 .body__profile #lightbox__body {
   background-color: white;
 }
-.body__profile #lightbox__body__media-img {
+.body__profile #lightbox__body__media__video {
+  height: 500px;
+  width: 500px;
+}
+.body__profile #lightbox__body__media__img {
   height: 500px;
   width: 500px;
 }

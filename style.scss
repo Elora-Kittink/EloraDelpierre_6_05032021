@@ -234,6 +234,11 @@ body {
                     height: 300px;
                     object-fit: cover;
                 }
+                &__video {
+                    width: 350px;
+                    height: 300px;
+                    object-fit: cover;
+                }
             }
         }
     }
@@ -251,11 +256,17 @@ body {
         display: none;
         &__body {
             background-color: white;
+            &__media {
+                &__video {
+                    height: 500px;
+                    width: 500px;
+                }
+            }
         }         
     }
 
-    #lightbox__body__media-img {
-        height: 500px;
+    #lightbox__body__media__img {
+        height: 500px; 
         width: 500px;
     }
 
