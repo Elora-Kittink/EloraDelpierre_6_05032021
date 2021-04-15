@@ -11,24 +11,24 @@
 <body id="body__index">
     <header>
         <img class="fisheye__logo" src="fisheye_photos/logo.png" alt="fisheye_logo">
-        <nav>
-            <a href="">Passer au contenu</a>
-            <div class="nav__hashtag">
-                <a href="index.html?tag=portrait" id="portrait">#Portrait</a>      <!-- lien qui mène vers une fonction qui filtre avec filter() et qui passe en display none ceux qui n'ont pas les bons tags?-->
-                <a href="index.html?tag=art" id="art">#Art</a>
-                <a href="index.html?tag=fashion" id="fashion">#Fashion</a>
-                <a href="index.html?tag=architecture" id="architecture">#Architecture</a>
-                <a href="index.html?tag=travel" id="travel">#Travel</a>
-                <a href="index.html?tag=sport" id="sport">#Sport</a>
-                <a href="index.html?tag=animals" id="animal">#Animals</a>
-                <a href="index.html?tag=events" id="events">#Events</a>
+        <nav id="nav" role="navigation">
+            <a href="#nav" id="nav__contentlink">Passer au contenu</a> 
+            <div id ="nav__hashtag">
+                <a href="index.html?tag=portrait" id="portrait" lang="en">#Portrait</a>      <!--ARIA langangue anglais renseignée-->
+                <a href="index.html?tag=art" id="art" lang="en">#Art</a>
+                <a href="index.html?tag=fashion" id="fashion" lang="en">#Fashion</a>
+                <a href="index.html?tag=architecture" id="architecture" lang="en">#Architecture</a>
+                <a href="index.html?tag=travel" id="travel" lang="en">#Travel</a>
+                <a href="index.html?tag=sport" id="sport" lang="en">#Sport</a>
+                <a href="index.html?tag=animals" id="animal" lang="en">#Animals</a>
+                <a href="index.html?tag=events" id="events" lang="en">#Events</a>
             </div>
         </nav>
     </header>
     <main class="main__index">
         <h1>Nos photographes</h1>
-        <section id="photographer__grid">
-            
+        <section id="photographers__grid">
+        
         </section>
     </main>
     <script src="./javascript/index.js" type="module"></script>

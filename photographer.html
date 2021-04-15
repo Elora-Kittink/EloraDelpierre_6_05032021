@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/9c2bcb7132.js" crossorigin="anonymous"></script>
 </head>
-<body class="body__profile">
+<body id="body__profile" aria-hidden="false"> <!--ARIA passe a hidden true quand la modale s'ouvre-->
     <header>
        <a href="index.html"><img class="fisheye__logo" src="fisheye_photos/logo.png" alt="fisheye_logo"></a>
     </header>
     <main>
-        <section id="photographer__profile">    
-            <h1 id="photographer__profile__name"></h1>
-            <p id="photographer__profile__location"></p>
-            <p id="photographer__profile__tagline"></p>
-            <p id="photographer__profile__tags"></p>
+        <section id="photographer__profile">   
+            <div id="photographe__profile__container"> 
+                <h1 id="photographer__profile__name"></h1>
+                <p id="photographer__profile__location"></p>
+                <p id="photographer__profile__tagline"></p>
+                <p id="photographer__profile__tags" lang="en"></p>
+            </div>
             <button id="photographer__profile__btn"></button>
             <img id="photographer__profile__portrait">    
         </section>
-        <section class="sort">   
-            <label for="">Trier par</label>
+        <section id="sort">   
+            <label for="">Trier par</label> <!--aria-expanded pour indiquer qu'il est déroulé-->
             <select id="sort__select" name="">
                 <option value="popularity">Popularité</option>
                 <option value="date">Date</option>
@@ -42,17 +44,19 @@
             </div>            
         </div>
     </div>
-    <div role="dialog" id="contact">
+    <div role="dialog" id="contact" aria-hidden="true" aria-labelledby="form-title">
         <form action="" id="contact__form">
-            <h1>Contactez-moi</h1>
+            <h1 id="form-title">Contactez-moi</h1>
             <p id="contact__form__photographer"></p>
             <i id="contact__form__closebtn" class="fas fa-times" role="button"></i>
-            <label id="contact__form__firstname__label" for="firstname">Prénom</label>
-            <input id="contact__form__firstname__input" type="text" name="firstname" required>
-            <label id="contact__form__lastname__label" for="lastname">Nom</label>
-            <input id="contact__form__lastname__input" type="text" name="lastname" required>
-            <label id="contact__form__email__label" for="email">Email</label>
-            <input id="contact__form__email__input" type="email" name="email" required>
+            <div role="group" aria-labelledby="coordonnées">
+                <label id="contact__form__firstname__label" for="firstname">Prénom</label>
+                <input id="contact__form__firstname__input" type="text" name="firstname" required>
+                <label id="contact__form__lastname__label" for="lastname">Nom</label>
+                <input id="contact__form__lastname__input" type="text" name="lastname" required>   <!--masquer le reste de la page quand la modale est ouverte avec aria-hidden="true"-->
+                <label id="contact__form__email__label" for="email">Email</label>    <!--pouvoir fermer la modale avec touche echap-->
+                <input id="contact__form__email__input" type="email" name="email" required>  <!--mettre le focus sur la modale quand elle est ouverte-->
+            </div>
             <label id="contact__form__message__label" for="message">Votre message</label>
             <input id="contact__form__message__input" type="text">
             <button id="contact__form__submitbtn" type="submit" >Envoyer</button>
@@ -64,7 +68,7 @@
             <p id="footer__profile__likes__total"></p>
         </div>
         <div>
-            <p class="footer__profile__price">300€/jour</p>
+            <p class="footer__profile__price">300€/jour</i></p>
         </div>
     </footer>  
 </body>

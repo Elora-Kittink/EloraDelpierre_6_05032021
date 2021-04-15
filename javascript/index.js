@@ -5,9 +5,6 @@ import {nextButton} from "./lightbox.js";
 import {previousButton} from "./lightbox.js";
 
 
-console.log(window.location.href);
-console.log(window.location.href.includes("photographer.html"));
-
 if (window.location.href.includes("photographer.html")) {
     displayPhotographer();
     displayGallery();

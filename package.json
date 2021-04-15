@@ -1,0 +1,23 @@
+{
+  "name": "P6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elora-Kittink/EloraDelpierre_6_05032021.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elora-Kittink/EloraDelpierre_6_05032021/issues"
+  },
+  "homepage": "https://github.com/Elora-Kittink/EloraDelpierre_6_05032021#readme",
+  "devDependencies": {
+    "eslint": "^7.24.0"
+  }
+}

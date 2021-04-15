@@ -22,9 +22,12 @@ function completePhotographerProfile (photographerSelected) {
     photographerProfilePortrait.setAttribute("alt", photographerSelected.alt);
     const contactFormBtn = document.getElementById("photographer__profile__btn");
     contactFormBtn.textContent = "contactez-moi";
-    contactFormBtn.addEventListener("click", launchForm);
+    contactFormBtn.addEventListener("click", function() {
+        launchForm(photographerSelected.name);
+    });
+} 
 
-}
+
  
 
 export function displayGallery() {
@@ -70,16 +73,19 @@ export function displayGallery() {
             galleryMedia.setAttribute("class", "gallery__media");
             gallery.appendChild(galleryMedia);
             galleryMedia.appendChild(link);
+            const galleryInfo = document.createElement("div");
+            galleryInfo.setAttribute("class", "gallery__media__info");
+            galleryMedia.appendChild(galleryInfo);
             link.addEventListener("click", function() {
                 launchLightbox(media.id, media.image, media.video, mediaArray, media.alt);
-            })
+            });
             addImageInGalleryMedia(media, media.image, link, media.alt, media.id, media.video);
-            addTitleInGalleryMedia(media.alt, galleryMedia);
-            addPriceInGalleryMedia(media.price, galleryMedia);
-            addDateInGalleryMedia(media.date, galleryMedia);
-            addLikesInGalleryMedia(media.likes, galleryMedia, mediaArray);
+            addTitleInGalleryMedia(media.alt, galleryInfo);
+            addPriceInGalleryMedia(media.price, galleryInfo);
+            addDateInGalleryMedia(media.date, galleryInfo);
+            addLikesInGalleryMedia(media.likes, galleryInfo, mediaArray);
     }
-    /* incrémenter le total des likes en bas de la page */
+    
     
 }
 
@@ -105,63 +111,74 @@ function addImageInGalleryMedia (media, image, link, alt, id, video) {
     
 }
 
-function addTitleInGalleryMedia (alt, galleryMedia) {
+function addTitleInGalleryMedia (alt, galleryInfo) {
     const mediaTitle = document.createElement("div");
-    mediaTitle.setAttribute("class", "gallery__media__title");    
-    galleryMedia.appendChild(mediaTitle);
+    mediaTitle.setAttribute("class", "gallery__media__info__title");    
+    mediaTitle.setAttribute("lang", "en");
+    galleryInfo.appendChild(mediaTitle);
     mediaTitle.innerHTML = alt;
     
 }
 
-function addPriceInGalleryMedia (price, galleryMedia) {
+function addPriceInGalleryMedia (price, galleryInfo) {
     const mediaPrice = document.createElement("div");
-    mediaPrice.setAttribute("class", "gallery__media__price");
-    galleryMedia.appendChild(mediaPrice);
-    mediaPrice.innerHTML = price + "€";
+    mediaPrice.setAttribute("class", "gallery__media__info__price");
+    galleryInfo.appendChild(mediaPrice);
+    mediaPrice.innerHTML = price + " €";
 }
 
-function addDateInGalleryMedia (date, galleryMedia) {
+function addDateInGalleryMedia (date, galleryInfo) {
     const mediaDate = document.createElement("time");
     mediaDate.setAttribute("datetime", date);
-    galleryMedia.appendChild(mediaDate);
+    galleryInfo.appendChild(mediaDate);
 }
 
-function addLikesInGalleryMedia (likes, galleryMedia, mediaArray) {
+function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
     let counter = likes;
+    const mediaLikes = document.createElement("p");    
+    mediaLikes.setAttribute("class", "gallery__media__info__likes");  
+    mediaLikes.innerHTML = likes;      
+    galleryInfo.appendChild(mediaLikes);
+    const mediaHeart = document.createElement("i");
+    mediaHeart.setAttribute("class", "fas fa-heart");
+    mediaHeart.setAttribute("title", "bouton j'aime");  //ARIA titre pour icone coeur//
+    galleryInfo.appendChild(mediaHeart);
     function counterIncrement() {
         counter++;
         mediaLikes.innerHTML = counter;
         likesArray.push(1);
         footerTotalLikes.innerHTML = "";
         const sum = likesArray.reduce((acc, cur) => acc + cur, 0);
-        footerTotalLikes.innerHTML = sum;
+        footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">";
     } 
-    const mediaLikes = document.createElement("button");
-    mediaLikes.onclick = counterIncrement;
-    mediaLikes.setAttribute("class", "gallery__media__likes");        
-    galleryMedia.appendChild(mediaLikes);
-    const mediaHeart = document.createElement("i");
-    mediaHeart.setAttribute("class", "fas fa-heart");
-    mediaLikes.appendChild(mediaHeart);
+    mediaHeart.addEventListener("click", counterIncrement);
+    
     
     const likesArray = mediaArray.map((media) => {
         return media.likes;
     }) ; 
     const footerTotalLikes = document.getElementById("footer__profile__likes__total");
     const sum = likesArray.reduce((acc, cur) => acc + cur, 0);
-    footerTotalLikes.innerHTML = sum;
+    footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">";
 }
   
 
 /*---------------------------------------FORMULAIRE CONTACT-------------------------------------*/
 
-function launchForm() {
+function launchForm(name) {
     const containerForm = document.getElementById("contact");
     const form = document.getElementById("contact__form");
     containerForm.style.display = "block";
     const closeFormBtn = document.getElementById("contact__form__closebtn");
     closeFormBtn.addEventListener("click", closeForm);
     const submitFormBtn = document.getElementById("contact__form__submitbtn");
+    const photographerContacted = document.getElementById("contact__form__photographer");
+    photographerContacted.innerHTML = name;
+    const bodyProfile = document.getElementById("body__profile");
+    bodyProfile.setAttribute("aria-hidden", "true");
+    bodyProfile.setAttribute("class", "no-scroll");
+    containerForm.setAttribute("aria-hidden", "false");
+    closeFormBtn.focus();
     submitFormBtn.addEventListener("click", function(e) {
         e.preventDefault();
         console.log(document.getElementById("contact__form__firstname__input").value);

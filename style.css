@@ -1,44 +1,66 @@
 /*------------------------------------- INDEX ----------------------------------*/
-body {
+#body__index {
   font-family: "DM Sans", sans-serif;
-  width: 100%;
+  width: 1750px;
+  padding-left: 70px;
+  padding-right: 70px;
+  margin: 0px;
 }
-
-.fisheye__logo {
-  width: 200px;
-  height: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
 #body__index header {
   display: flex;
 }
-#body__index header nav {
-  width: 500px;
-  margin-left: 50px;
+#body__index header .fisheye__logo {
+  width: 200px;
+  height: 50px;
+  margin-left: 140px;
   margin-right: 50px;
+  margin-top: 25px;
+}
+#body__index header #nav {
+  width: 500px;
+  margin-left: 150px;
+  margin-right: 50px;
+  margin-top: 7px;
   text-align: center;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125em;
 }
-#body__index header nav a {
-  background-color: #DB8876;
-  color: black;
-  text-decoration: none;
+#body__index header #nav__contentlink {
+  background: #DB8876;
   border-radius: 5px;
+  text-decoration: none;
+  color: black;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 2px;
   padding-bottom: 2px;
+  position: sticky;
+  top: 10px;
 }
-#body__index header nav .nav__hashtag {
+#body__index header #nav__hashtag {
   display: flex;
   justify-content: space-between;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.75em;
+  margin-top: 8px;
 }
-#body__index header nav .nav__hashtag p {
+#body__index header #nav__hashtag a {
+  background-color: white;
+  color: #901C1C;
+  border: 0.5px solid #C4C4C4;
+  text-decoration: none;
+  border-radius: 11px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 3px;
+}
+#body__index header #nav__hashtag a:hover:focus {
+  color: white;
+  background-color: #901C1C;
+}
+#body__index header #nav__hashtag p {
   border: 0.5px solid #C4C4C4;
   border-radius: 11px;
   padding-left: 4px;
@@ -51,23 +73,26 @@ body {
   margin-top: 60px;
 }
 .main__index h1 {
-  font-size: 36px;
+  font-size: 3em;
   font-weight: 400;
   color: #901C1C;
   position: absolute;
-  top: -130px;
-  right: 117px;
+  top: -135px;
+  right: 250px;
 }
-.main__index #photographer__grid {
+.main__index #photographers__grid {
   height: 950px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
 }
-.main__index #photographer__grid .photographer__cell {
+.main__index #photographers__grid .photographers {
   width: 500px;
 }
-.main__index #photographer__grid .photographer__cell .photographer__portrait {
+.main__index #photographers__grid .photographers__link {
+  text-decoration: none;
+}
+.main__index #photographers__grid .photographers__portrait {
   width: 200px;
   height: 200px;
   border: 1px solid transparent;
@@ -76,46 +101,42 @@ body {
   margin: auto;
   display: block;
 }
-.main__index #photographer__grid .photographer__cell .photographer__name {
+.main__index #photographers__grid .photographers__name {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 2px;
-}
-.main__index #photographer__grid .photographer__cell .photographer__name a {
   text-decoration: none;
-  font-size: 36px;
+  font-size: 3em;
   font-weight: 500;
   color: #D3573C;
 }
-.main__index #photographer__grid .photographer__cell .photographer__location {
+.main__index #photographers__grid .photographers__location {
   text-align: center;
-  font-size: 13px;
+  font-size: 0.8125em;
   color: #901C1C;
   margin: 2px;
 }
-.main__index #photographer__grid .photographer__cell .photographer__country {
+.main__index #photographers__grid .photographers__tagline {
   text-align: center;
-  font-size: 13px;
-  color: #901C1C;
+  font-size: 0.625em;
   margin: 2px;
 }
-.main__index #photographer__grid .photographer__cell .photographer__tagline {
+.main__index #photographers__grid .photographers__price {
   text-align: center;
-  font-size: 10px;
-  margin: 2px;
-}
-.main__index #photographer__grid .photographer__cell .photographer__price {
-  text-align: center;
-  font-size: 9px;
+  font-size: 0.5625em;
   color: #757575;
   margin: 2px;
 }
-.main__index #photographer__grid .photographer__cell .photographer__tags {
+.main__index #photographers__grid .photographers__tags {
   text-align: center;
+  color: #911C1C;
+  font-size: 0.75em;
+  font-weight: 500;
+  width: 100%;
 }
-.main__index #photographer__grid .photographer__cell .photographer__tags a {
-  display: inline;
-  font-size: 12px;
+.main__index #photographers__grid .photographers__tags a {
+  text-decoration: none;
+  font-size: 0.75em;
   font-weight: 500;
   color: #901C1C;
   border: 0.5px solid #C4C4C4;
@@ -125,107 +146,168 @@ body {
   padding-right: 4px;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 /*------------------------------PHOTOGRAPHE PAGE--------------------------------*/
-.body__profile {
-  width: 1440px;
-  height: 5000px;
-  margin-left: auto;
-  margin-right: auto;
+#body__profile {
+  font-family: "DM Sans", sans-serif;
+  width: 1750px;
+  padding-left: 70px;
+  padding-right: 70px;
+  margin: 0px;
   /*----------------------------LIGHTBOX------------------------------*/
   /*------------------------------FORMULAIRE CONTACT-------------------------*/
   /*---------------------------------FOOTER-------------------------------------*/
 }
-.body__profile header {
+#body__profile header {
   display: flex;
   justify-content: flex-start;
 }
-.body__profile main #photographer__profile {
+#body__profile header img {
+  width: 200px;
+  height: 50px;
+  margin-left: 260px;
+  margin-right: 50px;
+  margin-top: 25px;
+}
+#body__profile main {
+  margin-top: 40px;
+}
+#body__profile main #photographer__profile {
   width: 1240px;
   height: 313px;
   background-color: #FAFAFA;
   margin: auto;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
-.body__profile main #photographer__profile__name {
+#body__profile main #photographer__profile #photographe__profile__container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+  padding-top: 40px;
+  margin-right: 60px;
+}
+#body__profile main #photographer__profile__name {
   font-weight: 400;
-  font-size: 64px;
+  font-size: 3.75em;
   color: #D3573C;
   margin: 0px;
-  position: absolute;
-  top: 56px;
-  left: 50px;
 }
-.body__profile main #photographer__profile__location {
+#body__profile main #photographer__profile__location {
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.5em;
   color: #901C1C;
-  margin: 0px;
-  position: absolute;
-  top: 139px;
-  left: 50px;
+  margin-bottom: 7px;
+  margin-top: 10px;
 }
-.body__profile main #photographer__profile__tagline {
+#body__profile main #photographer__profile__tagline {
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.125em;
   color: #525252;
-  margin: 0px;
-  position: absolute;
-  top: 189px;
-  left: 50px;
+  margin-bottom: 5px;
+  margin-top: 8px;
 }
-.body__profile main #photographer__profile__tags {
+#body__profile main #photographer__profile__tags {
   display: flex;
   margin: 0px;
-  position: absolute;
-  top: 231px;
-  left: 47px;
 }
-.body__profile main #photographer__profile__tags p {
+#body__profile main #photographer__profile__tags p {
   border: 0.5px solid #C4C4C4;
   border-radius: 12px;
   color: #901C1C;
   font-weight: 500;
   font-size: 18px;
 }
-.body__profile main #photographer__profile button {
+#body__profile main #photographer__profile button {
   background-color: #901C1C;
   color: white;
-  margin: 0px;
+  margin-top: 45px;
+  margin-right: auto;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25em;
   width: 170px;
   height: 69px;
-  position: absolute;
-  top: 63px;
-  left: 450px;
   border-radius: 5px;
   border: transparent;
 }
-.body__profile main #photographer__profile img {
+#body__profile main #photographer__profile img {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 200px;
-  position: absolute;
-  top: 60px;
-  right: 50px;
+  margin-top: 55px;
+  margin-right: 55px;
 }
-.body__profile main #gallery {
+#body__profile main #sort {
+  margin-left: 255px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: 1.125em;
+  font-weight: 700;
+}
+#body__profile main #sort__select {
+  appearance: none;
+  color: white;
+  font-size: 1.125em;
+  font-weight: 700;
+  background-color: #911C1C;
+  border-radius: 5px;
+  padding: 8px;
+  border: transparent;
+}
+#body__profile main #gallery {
   display: grid;
   grid-template-columns: 350px 350px 350px;
   grid-column-gap: 95px;
+  grid-row-gap: 20px;
+  justify-content: center;
 }
-.body__profile main #gallery .gallery__media__image {
+#body__profile main #gallery .gallery__media__image {
   width: 350px;
   height: 300px;
   object-fit: cover;
+  border-radius: 5px;
 }
-.body__profile main #gallery .gallery__media__video {
+#body__profile main #gallery .gallery__media__video {
   width: 350px;
   height: 300px;
   object-fit: cover;
+  border-radius: 5px;
 }
-.body__profile #lightbox {
+#body__profile main #gallery .gallery__media__info {
+  display: flex;
+  justify-content: flex-end;
+  color: #901C1C;
+  font-size: 1.5em;
+  margin-top: 7px;
+  height: 31px;
+  overflow: hidden;
+}
+#body__profile main #gallery .gallery__media__info__title {
+  font-weight: 400;
+  justify-self: flex-start;
+  margin-right: auto;
+  width: 225px;
+}
+#body__profile main #gallery .gallery__media__info__price {
+  font-weight: 500;
+  margin-right: 5px;
+  width: 60px;
+}
+#body__profile main #gallery .gallery__media__info__likes {
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 5px;
+}
+#body__profile main #gallery .gallery__media__info .fa-heart {
+  font-size: 1.25em;
+  margin-top: 5px;
+}
+#body__profile #lightbox {
   position: fixed;
   z-index: 100;
   top: 0;
@@ -235,99 +317,102 @@ body {
   background-color: white;
   display: none;
 }
-.body__profile #lightbox__body {
+#body__profile #lightbox__body {
   background-color: white;
 }
-.body__profile #lightbox__body__media__video {
+#body__profile #lightbox__body__media__video {
   height: 500px;
   width: 500px;
 }
-.body__profile #lightbox__body__media__img {
+#body__profile #lightbox__body__media__img {
   height: 500px;
   width: 500px;
 }
-.body__profile #contact {
+#body__profile #contact {
   position: fixed;
   z-index: 100;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: rgba(196, 196, 196, 0.4);
   display: none;
 }
-.body__profile #contact__form {
+#body__profile #contact__form {
   position: relative;
-  width: 669px;
-  height: 900px;
+  width: 500px;
+  height: 700px;
   background-color: #DB8876;
-  box-shadow: 5px 5px black;
   margin: auto;
-  padding: 35px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
 }
-.body__profile #contact__form h1 {
-  font-size: 64px;
+#body__profile #contact__form h1 {
+  font-size: 3.4375em;
   font-weight: 400;
+  margin: 0px;
 }
-.body__profile #contact__form__photographer {
-  font-size: 64px;
+#body__profile #contact__form__photographer {
+  font-size: 3.4375em;
   font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
-.body__profile #contact__form__closebtn {
+#body__profile #contact__form__closebtn {
   position: absolute;
-  top: 35px;
+  top: 40px;
   right: 35px;
-  font-size: 42px;
+  font-size: 2.625;
   color: white;
 }
-.body__profile #contact__form__firstname__label {
-  font-size: 36px;
+#body__profile #contact__form__firstname__label {
+  font-size: 2.25em;
 }
-.body__profile #contact__form__firstname__input {
-  font-size: 36px;
-  width: 599px;
+#body__profile #contact__form__firstname__input {
+  font-size: 2.25em;
+  width: 400px;
   height: 68px;
   font-weight: 400;
   border-radius: 5px;
   border: transparent;
 }
-.body__profile #contact__form__lastname__label {
-  font-size: 36px;
+#body__profile #contact__form__lastname__label {
+  font-size: 2.25em;
 }
-.body__profile #contact__form__lastname__input {
-  font-size: 36px;
-  width: 599px;
+#body__profile #contact__form__lastname__input {
+  font-size: 2.25em;
+  width: 400px;
   height: 68px;
   border-radius: 5px;
   font-weight: 400;
   border: transparent;
 }
-.body__profile #contact__form__email__label {
-  font-size: 36px;
+#body__profile #contact__form__email__label {
+  font-size: 2.25em;
 }
-.body__profile #contact__form__email__input {
-  font-size: 36px;
-  width: 599px;
+#body__profile #contact__form__email__input {
+  font-size: 2.25em;
+  width: 400px;
   height: 68px;
   border-radius: 5px;
   font-weight: 400;
   border: transparent;
 }
-.body__profile #contact__form__message__label {
-  font-size: 36px;
+#body__profile #contact__form__message__label {
+  font-size: 2.25em;
 }
-.body__profile #contact__form__message__input {
-  font-size: 36px;
-  width: 599px;
+#body__profile #contact__form__message__input {
+  font-size: 2.25em;
+  width: 400px;
   height: 170px;
   border-radius: 5px;
   font-weight: 400;
   border: transparent;
 }
-.body__profile #contact__form__submitbtn {
-  font-size: 18px;
+#body__profile #contact__form__submitbtn {
+  font-size: 1.125em;
   font-weight: 700;
   color: white;
   background-color: #911C1C;
@@ -337,13 +422,85 @@ body {
   margin-top: 26px;
   border: transparent;
 }
-.body__profile .footer__profile {
+#body__profile .footer__profile {
+  position: sticky;
+  bottom: 0px;
+  left: 50px;
+  margin-left: auto;
   display: flex;
   justify-content: space-between;
-  background-color: #D3573C;
+  background-color: #DB8876;
   color: black;
-  width: 376px;
+  width: min-content;
   height: 89px;
+  font-size: 1.5em;
+  font-weight: 500;
+  border-radius: 5px 5px 0px 0px;
+}
+#body__profile .footer__profile #footer__profile__likes__total {
+  margin: 30px;
+  display: flex;
+}
+#body__profile .footer__profile #footer__profile__likes__total .fa-heart {
+  margin-top: 4px;
+  margin-left: 7px;
+}
+#body__profile .footer__profile__price {
+  margin: 30px;
+}
+
+@media (max-width: 500px) {
+  #body__index {
+    padding: 0px;
+    max-width: 400px;
+  }
+  #body__index header {
+    flex-direction: column;
+  }
+  #body__index header .fisheye__logo {
+    width: 150px;
+    height: 37.5px;
+    margin-left: 20px;
+    margin-top: 40px;
+  }
+  #body__index header #nav {
+    margin: auto;
+    margin-top: 30px;
+  }
+  #body__index header #nav__contentlink {
+    display: none;
+  }
+  #body__index header #nav__hashtag {
+    width: 70%;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.75em;
+    text-align: center;
+  }
+
+  .main__index {
+    max-width: 400px;
+  }
+  .main__index h1 {
+    top: -165px;
+    right: 22px;
+    font-size: 0.875em;
+    font-weight: 400;
+  }
+  .main__index #photographers__grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .main__index #photographers__grid #photographer {
+    margin-bottom: 20px;
+  }
+  .main__index #photographers__grid #photographer__portrait {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
