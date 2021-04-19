@@ -1,5 +1,3 @@
-import {data} from "./data.js";
-
 let currentIndex = -1;
 let currentMediaArray = [];
 
@@ -11,14 +9,15 @@ export function launchLightbox(id, image, video, mediaArray, alt) { /* <= infos 
     currentMediaArray = mediaArray;
     lightboxMedia.innerHTML = "";
     lightboxBody.appendChild(lightboxMedia);
-    lightboxModal.style.display = "block";
+    lightboxModal.style.display = "flex";
     if(image !== undefined) {
         const lightboxImg = document.createElement("img");
         const lightboxImgTitle = document.createElement("p");
         lightboxImg.setAttribute("id", "lightbox__body__media__img");
+        lightboxImg.setAttribute("aria-label", alt);
         lightboxImg.src = "./fisheye_photos/media/" + image;
         lightboxMedia.appendChild(lightboxImg);
-        lightboxImgTitle.setAttribute("id", "lightbox__body__media-title");
+        lightboxImgTitle.setAttribute("id", "lightbox__body__media__title");
         lightboxImgTitle.innerText = alt;
         lightboxMedia.appendChild(lightboxImgTitle);
     }
@@ -36,7 +35,7 @@ export function launchLightbox(id, image, video, mediaArray, alt) { /* <= infos 
         lightboxVideo.appendChild(lightboxVideoSrc);
         lightboxMedia.appendChild(lightboxVideoTitle);
     }    
-    const lightboxCloseBtn = document.getElementById("lightbox__body-closebtn");   
+    const lightboxCloseBtn = document.getElementById("lightbox__body__closebtn");   
     lightboxCloseBtn.addEventListener("click", closeLightbox) ;
 }
   

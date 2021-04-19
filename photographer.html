@@ -9,66 +9,64 @@
 </head>
 <body id="body__profile" aria-hidden="false"> <!--ARIA passe a hidden true quand la modale s'ouvre-->
     <header>
-       <a href="index.html"><img class="fisheye__logo" src="fisheye_photos/logo.png" alt="fisheye_logo"></a>
+       <a href="index.html"><img class="fisheye__logo" src="fisheye_photos/logo.png" alt="Fisheye Home Page"></a>
     </header>
     <main>
-        <section id="photographer__profile">   
-            <div id="photographe__profile__container"> 
-                <h1 id="photographer__profile__name"></h1>
-                <p id="photographer__profile__location"></p>
-                <p id="photographer__profile__tagline"></p>
-                <p id="photographer__profile__tags" lang="en"></p>
+        <section id="photographer-profile" aria-label="profile du photographe">   
+            <div id="photographer-profile__container"> 
+                <h1 id="photographer-profile__name"></h1>
+                <p id="photographer-profile__location"></p>
+                <p id="photographer-profile__tagline"></p>
+                <p id="photographer-profile__tags" lang="en"></p>
             </div>
-            <button id="photographer__profile__btn"></button>
-            <img id="photographer__profile__portrait">    
+            <button id="photographer-profile__btn" aria-label="contact me"></button>
+            <img id="photographer-profile__portrait">    
         </section>
         <section id="sort">   
-            <label for="">Trier par</label> <!--aria-expanded pour indiquer qu'il est déroulé-->
+            <label for="sort__select">Trier par </label> <!--aria-expanded pour indiquer qu'il est déroulé-->
             <select id="sort__select" name="">
                 <option value="popularity">Popularité</option>
                 <option value="date">Date</option>
                 <option value="title">Titre</option>
             </select>
         </section>
-        <section id="gallery">
+        <section id="gallery" aria-label="Gallerie">
         </section>        
     </main>
     <div role="dialog" aria-modal="true"
     aria-hidden="true" id="lightbox">
-        <div role="document" id="lightbox__body">
-            <i id="lightbox__body-closebtn" class="fas fa-times" role="button"></i>
-            <i id="lightbox__body__nextbtn" class="fas fa-chevron-right"></i>
-            <i id="lightbox__body__prevbtn" class="fas fa-chevron-left"></i>
-            <div id="lightbox__body__media">
-                <div id="lightbox__body__media-title"></div>
-            </div>            
+        <div role="document" id="lightbox__body" aria-label="image closeup view">   
+            <i id="lightbox__body__prevbtn" class="fas fa-chevron-left" aria-label="previous image"></i>               
+            <div id="lightbox__body__media"></div>      
+            <i id="lightbox__body__nextbtn" class="fas fa-chevron-right" aria-label="next image"></i>
+            <i id="lightbox__body__closebtn" class="fas fa-times" role="button" aria-label="close dialog"></i> 
         </div>
     </div>
     <div role="dialog" id="contact" aria-hidden="true" aria-labelledby="form-title">
-        <form action="" id="contact__form">
+        <form action="" id="contact__form" aria-labelledby="form-title">
             <h1 id="form-title">Contactez-moi</h1>
             <p id="contact__form__photographer"></p>
-            <i id="contact__form__closebtn" class="fas fa-times" role="button"></i>
-            <div role="group" aria-labelledby="coordonnées">
-                <label id="contact__form__firstname__label" for="firstname">Prénom</label>
-                <input id="contact__form__firstname__input" type="text" name="firstname" required>
-                <label id="contact__form__lastname__label" for="lastname">Nom</label>
-                <input id="contact__form__lastname__input" type="text" name="lastname" required>   <!--masquer le reste de la page quand la modale est ouverte avec aria-hidden="true"-->
-                <label id="contact__form__email__label" for="email">Email</label>    <!--pouvoir fermer la modale avec touche echap-->
-                <input id="contact__form__email__input" type="email" name="email" required>  <!--mettre le focus sur la modale quand elle est ouverte-->
+            <i id="contact__form__closebtn" class="fas fa-times" role="button" aria-label="close contact form"></i>
+            <div id="contact__form__info" role="group" aria-labelledby="coordonnées">
+                <label id="contact__form__info__firstname__label" for="firstname">Prénom</label>
+                <input id="contact__form__info__firstname__input" type="text" name="firstname" required>
+                <label id="contact__form__info__lastname__label" for="lastname">Nom</label>
+                <input id="contact__form__info__lastname__input" type="text" name="lastname" required>   <!--masquer le reste de la page quand la modale est ouverte avec aria-hidden="true"-->
+                <label id="contact__form__info__email__label" for="email">Email</label>    <!--pouvoir fermer la modale avec touche echap-->
+                <input id="contact__form__info__email__input" type="email" name="email" required>  <!--mettre le focus sur la modale quand elle est ouverte-->
             </div>
             <label id="contact__form__message__label" for="message">Votre message</label>
             <input id="contact__form__message__input" type="text">
-            <button id="contact__form__submitbtn" type="submit" >Envoyer</button>
+            <button id="contact__form__submitbtn" type="submit" aria-label="send" >Envoyer</button>
         </form>
     </div>
     <script src="./javascript/index.js" type="module"></script>
-    <footer class="footer__profile">
-        <div class="footer__profile__likes">
-            <p id="footer__profile__likes__total"></p>
+    <footer class="footer-profile">
+        <div class="footer-profile__likes">
+            <p id="footer-profile__likes__total"></p>
         </div>
         <div>
-            <p class="footer__profile__price">300€/jour</i></p>
+            <p class="footer-profile__price">300€/jour</i></p>
         </div>
     </footer>  
 </body>

@@ -8,19 +8,27 @@ export function displayPhotographer () {
     const idNumber = parseInt(id, 10);
     const photographersArray = data.photographers;
     const photographerSelected = photographersArray.find(photographer => photographer.id === idNumber); 
-    completePhotographerProfile(photographerSelected)
+    completePhotographerProfile(photographerSelected, photographerSelected.tags)
 }
 
 
-function completePhotographerProfile (photographerSelected) {
-    document.getElementById("photographer__profile__name").textContent = photographerSelected.name;
-    document.getElementById("photographer__profile__location").textContent = photographerSelected.city + "," + photographerSelected.country;
-    document.getElementById("photographer__profile__tagline").textContent = photographerSelected.tagline;
-    document.getElementById("photographer__profile__tags").textContent = "#" + photographerSelected.tags;
-    const photographerProfilePortrait = document.getElementById("photographer__profile__portrait");
+function completePhotographerProfile (photographerSelected, tags) {
+    document.getElementById("photographer-profile__name").textContent = photographerSelected.name;
+    document.getElementById("photographer-profile__location").textContent = photographerSelected.city + "," + photographerSelected.country;
+    document.getElementById("photographer-profile__tagline").textContent = photographerSelected.tagline;
+    const photographerTags = document.getElementById("photographer-profile__tags")
+    for (let tag of tags) {
+        const photographerTag = document.createElement("a");
+        photographerTag.textContent = " #" + tag;
+        photographerTag.classList.add("photographer__tag");
+        photographerTags.appendChild(photographerTag);
+        photographerTag.setAttribute("href", "#");
+        photographerTag.setAttribute("aria-label", "tag");
+    }
+    const photographerProfilePortrait = document.getElementById("photographer-profile__portrait");
     photographerProfilePortrait.setAttribute("src", "./fisheye_photos/ID_Photos/" + photographerSelected.portrait)
     photographerProfilePortrait.setAttribute("alt", photographerSelected.alt);
-    const contactFormBtn = document.getElementById("photographer__profile__btn");
+    const contactFormBtn = document.getElementById("photographer-profile__btn");
     contactFormBtn.textContent = "contactez-moi";
     contactFormBtn.addEventListener("click", function() {
         launchForm(photographerSelected.name);
@@ -63,7 +71,7 @@ export function displayGallery() {
                 return 1
             return 0 
         })
-    };
+    }
     
     for (let media of mediaArray) {
             const link = document.createElement("a");
@@ -93,7 +101,7 @@ function addImageInGalleryMedia (media, image, link, alt, id, video) {
     if (media.image !== undefined) {
         const mediaImage = document.createElement("img");
         mediaImage.setAttribute("src", "./fisheye_photos/media/" + image);
-        mediaImage.setAttribute("alt", alt);
+        mediaImage.setAttribute("alt", alt + ", closeup view");
         mediaImage.setAttribute("class", "gallery__media__image");
         mediaImage.setAttribute("id", id);
         link.appendChild(mediaImage);
@@ -102,7 +110,7 @@ function addImageInGalleryMedia (media, image, link, alt, id, video) {
         const mediaVideoSrc = document.createElement("source");
         mediaVideoSrc.setAttribute("src", "./fisheye_photos/media/" + video);
         mediaVideoSrc.setAttribute("type", "video/mp4");
-        mediaVideo.setAttribute("alt", alt);
+        mediaVideo.setAttribute("alt", alt + ", closeup view");
         mediaVideo.setAttribute("class", "gallery__media__video");
         mediaVideo.setAttribute("id", id);
         link.appendChild(mediaVideo);
@@ -112,7 +120,7 @@ function addImageInGalleryMedia (media, image, link, alt, id, video) {
 }
 
 function addTitleInGalleryMedia (alt, galleryInfo) {
-    const mediaTitle = document.createElement("div");
+    const mediaTitle = document.createElement("title");
     mediaTitle.setAttribute("class", "gallery__media__info__title");    
     mediaTitle.setAttribute("lang", "en");
     galleryInfo.appendChild(mediaTitle);
@@ -123,6 +131,7 @@ function addTitleInGalleryMedia (alt, galleryInfo) {
 function addPriceInGalleryMedia (price, galleryInfo) {
     const mediaPrice = document.createElement("div");
     mediaPrice.setAttribute("class", "gallery__media__info__price");
+    mediaPrice.setAttribute("aria-label", "prix de l'oeuvre")
     galleryInfo.appendChild(mediaPrice);
     mediaPrice.innerHTML = price + " €";
 }
@@ -141,7 +150,7 @@ function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
     galleryInfo.appendChild(mediaLikes);
     const mediaHeart = document.createElement("i");
     mediaHeart.setAttribute("class", "fas fa-heart");
-    mediaHeart.setAttribute("title", "bouton j'aime");  //ARIA titre pour icone coeur//
+    mediaHeart.setAttribute("aria-label", "likes");  //ARIA titre pour icone coeur//
     galleryInfo.appendChild(mediaHeart);
     function counterIncrement() {
         counter++;
@@ -157,7 +166,7 @@ function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
     const likesArray = mediaArray.map((media) => {
         return media.likes;
     }) ; 
-    const footerTotalLikes = document.getElementById("footer__profile__likes__total");
+    const footerTotalLikes = document.getElementById("footer-profile__likes__total");
     const sum = likesArray.reduce((acc, cur) => acc + cur, 0);
     footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">";
 }

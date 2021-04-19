@@ -17,6 +17,7 @@ export function displayPhotographers() {
         const photographersLink = document.createElement("a");
         photographersLink.setAttribute("class", "photographers__link");
         photographersLink.setAttribute("href", "photographer.html?id=" + photographersId);
+        photographersLink.setAttribute("aria-label", photographer.name);
         photographersCell.appendChild(photographersLink);
         addPortraitInPhotographerCell(photographer.portrait, photographersLink, photographer.alt)
         addNameInPhotographerCell(photographer.name, photographersLink);
@@ -73,9 +74,10 @@ function addTagsInPhotographerCell(tags, photographersCell) {
     for (let tag of tags) {
         const photographersTag = document.createElement("a");
         photographersTag.textContent = " #" + tag;
-        photographersTag.classList.add("photographer__tag");
+        photographersTag.classList.add("photographers__tag");
         photographersTags.appendChild(photographersTag);
         photographersTag.setAttribute("href", "#");
+        photographersTag.setAttribute("aria-label", "tag");
     }
     photographersCell.appendChild(photographersTags);
 }
