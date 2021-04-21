@@ -1,15 +1,18 @@
-import {data} from "./data.js";
+
 
 let allTags = ["portrait", "art", "fashion", "architecture", "travel", "sport", "animals", "events"]
 
 
-export function displayPhotographers() {    
-    const url= window.location.search; 
-    const urlParams = new URLSearchParams(url);
-    const tag = urlParams.get("tag");
-    const photographersArray = data.photographers.filter((element) => {return tag === null || element.tags.includes(tag)}); 
+export async function displayPhotographers() { 
+    const dataFile = await fetch("./data.json");   //methode fetch pour récuperer json//
+    const data = await dataFile.json();
+    console.log(dataFile);
+    const url= window.location.search;  // url courant //
+    const urlParams = new URLSearchParams(url); // pour pouvoir utiliser get //
+    const tag = urlParams.get("tag"); // = ce qui se trouve immédiatement après "tag"//
+    const photographersArray = data.photographers.filter((element) => {return tag === null || element.tags.includes(tag)}); //filtrer les photographes ayant le tag en question //
     const photographersGrid = document.getElementById("photographers__grid");
-    for (let photographer of photographersArray) {
+    for (let photographer of photographersArray) { // pour chaque photographe du tableau //
         const photographersId = photographer.id;
         const photographersCell = document.createElement("div");
         photographersCell.setAttribute("class", "photographers");
@@ -71,7 +74,7 @@ function addTagsInPhotographerCell(tags, photographersCell) {
     console.log(tags);
     const photographersTags = document.createElement("div");
     photographersTags.classList.add("photographers__tags");
-    for (let tag of tags) {
+    for (let tag of tags) {   
         const photographersTag = document.createElement("a");
         photographersTag.textContent = " #" + tag;
         photographersTag.classList.add("photographers__tag");

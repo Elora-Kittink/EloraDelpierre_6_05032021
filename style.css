@@ -270,6 +270,9 @@
   padding: 8px;
   border: transparent;
 }
+#body__profile main #sort__select > option[selected] {
+  display: none;
+}
 #body__profile main #gallery {
   display: grid;
   grid-template-columns: 350px 350px 350px;
@@ -356,15 +359,15 @@
   justify-content: center;
   align-items: center;
 }
-#lightbox__body__media__video {
+#lightbox__body__media .lightbox__body__media__video {
   height: 90%;
   width: 90%;
 }
-#lightbox__body__media__img {
+#lightbox__body__media .lightbox__body__media__img {
   height: 100%;
   width: 100%;
 }
-#lightbox__body__media__title {
+#lightbox__body__media .lightbox__body__media__title {
   align-self: flex-start;
 }
 #lightbox__body__nextbtn {

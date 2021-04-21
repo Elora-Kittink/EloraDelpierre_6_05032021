@@ -1,97 +1,101 @@
+import MediaFactory from "./MediaFactory.js";
+
 let currentIndex = -1;
 let currentMediaArray = [];
 
-export function launchLightbox(id, image, video, mediaArray, alt) { /* <= infos de l'image cliquée */
+export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= infos de l'image cliquée */
+    const dataFile = await fetch("./data.json");   //methode fetch pour récuperer json//
+    const data = await dataFile.json();
     const lightboxBody = document.getElementById("lightbox__body");
     const lightboxModal = document.getElementById("lightbox");
-    const lightboxMedia = document.getElementById("lightbox__body__media");
+    const lightboxMediaCell = document.getElementById("lightbox__body__media");
     currentIndex = mediaArray.findIndex((el) => {return el.id === id}); /*trouver dans le tableau mediaArray l'index de l'element dont l'id est égale a l'élément */
     currentMediaArray = mediaArray;
-    lightboxMedia.innerHTML = "";
-    lightboxBody.appendChild(lightboxMedia);
+    lightboxMediaCell.innerHTML = ""; //remettre à blanc//
+    lightboxBody.appendChild(lightboxMediaCell);
     lightboxModal.style.display = "flex";
-    if(image !== undefined) {
-        const lightboxImg = document.createElement("img");
-        const lightboxImgTitle = document.createElement("p");
-        lightboxImg.setAttribute("id", "lightbox__body__media__img");
-        lightboxImg.setAttribute("aria-label", alt);
-        lightboxImg.src = "./fisheye_photos/media/" + image;
-        lightboxMedia.appendChild(lightboxImg);
-        lightboxImgTitle.setAttribute("id", "lightbox__body__media__title");
+    let src ="" ;
+    if(image !== undefined) { //si c'est une image//
+        const lightboxImgTitle = document.createElement("p");       
+        src = "./fisheye_photos/media/" + image;        
+        lightboxImgTitle.setAttribute("class", "lightbox__body__media__title");
         lightboxImgTitle.innerText = alt;
-        lightboxMedia.appendChild(lightboxImgTitle);
+        lightboxMediaCell.appendChild(lightboxImgTitle);
     }
-    else if(video !== undefined) {
-        const lightboxVideo = document.createElement("video");
-        const lightboxVideoSrc = document.createElement("source");
-        const lightboxVideoTitle = document.createElement("p");
-        lightboxVideo.setAttribute("id", "lightbox__body__media__video");
-        lightboxVideo.setAttribute("controls","");
+    else if(video !== undefined) { //si c'est une video//
+        src = "./fisheye_photos/media/" + video ;    
+        const lightboxVideoTitle = document.createElement("p");        
         lightboxVideoTitle.innerText = alt;
-        lightboxVideoSrc.setAttribute("src", "./fisheye_photos/media/" + video);
-        lightboxVideoSrc.setAttribute("type", "video/mp4");
-        lightboxVideoSrc.setAttribute("id", "lightbox__body__media__video__src");
-        lightboxMedia.appendChild(lightboxVideo);
-        lightboxVideo.appendChild(lightboxVideoSrc);
-        lightboxMedia.appendChild(lightboxVideoTitle);
+        lightboxVideoTitle.setAttribute("class", "lightbox__body__media__title");       
+        lightboxMediaCell.appendChild(lightboxVideoTitle);
     }    
+
+    const lightboxFactory = new MediaFactory(src, id, alt);
+    const lightboxMedia = lightboxFactory.createMedia();
+    lightboxMediaCell.appendChild(lightboxMedia);
     const lightboxCloseBtn = document.getElementById("lightbox__body__closebtn");   
     lightboxCloseBtn.addEventListener("click", closeLightbox) ;
 }
   
 function closeLightbox() {
     const lightboxModal = document.getElementById("lightbox");
-    lightboxModal.style.display = "none";
+    lightboxModal.style.display = "none"; 
     console.log("test2");
 }
 
 export function nextButton() {
-    const lightboxMedia = document.getElementById("lightbox__body__media");
+    const lightboxMediaCell = document.getElementById("lightbox__body__media");
     if(currentIndex === currentMediaArray.length-1) { /* si on est sur le dernier element du tableau alors on revient au premier */
         currentIndex = 0;
     } 
     else {
         currentIndex += 1;       
     }
-    const lightboxMediaContainer = document.getElementById("lightbox__body__media");
-    lightboxMediaContainer.innerHTML = "";
-    if (currentMediaArray[currentIndex].image !== undefined) {
-        const lightboxImg = document.createElement("img");
-        const lightboxImgTitle = document.createElement("p");
-        lightboxImg.setAttribute("id", "lightbox__body__media__img");
-        lightboxMedia.appendChild(lightboxImg);
-        lightboxImgTitle.setAttribute("id", "lightbox__body__media-title");
+    lightboxMediaCell.innerHTML = ""; //remettre à blanc//
+    let src = "";
+    if (currentMediaArray[currentIndex].image !== undefined) {  //si c'est une image// 
+        const lightboxImgTitle = document.createElement("p");        
+        lightboxImgTitle.setAttribute("class", "lightbox__body__media__title");
         lightboxImgTitle.innerText = currentMediaArray[currentIndex].alt;
-        lightboxMedia.appendChild(lightboxImgTitle);
-        lightboxImg.setAttribute("src", "./fisheye_photos/media/" + currentMediaArray[currentIndex].image);
-    } else {
-        const lightboxVideo = document.createElement("video");
-        const lightboxVideoSrc = document.createElement("source");
+        lightboxMediaCell.appendChild(lightboxImgTitle);
+        src = "./fisheye_photos/media/" + currentMediaArray[currentIndex].image;
+    } else {                                                          //si c'est une video//
         const lightboxVideoTitle = document.createElement("p");
-        lightboxVideo.setAttribute("id", "lightbox__body__media__video");
-        lightboxVideo.setAttribute("controls","");
         lightboxVideoTitle.innerText = currentMediaArray[currentIndex].alt;
-        lightboxVideoSrc.setAttribute("type", "video/mp4");
-        lightboxVideoSrc.setAttribute("id", "lightbox__body__media__video__src");
-        lightboxMedia.appendChild(lightboxVideo);
-        lightboxVideo.appendChild(lightboxVideoSrc);
-        lightboxMedia.appendChild(lightboxVideoTitle);
-        lightboxVideoSrc.setAttribute("src", "./fisheye_photos/media/" + currentMediaArray[currentIndex].video);
+        lightboxMediaCell.appendChild(lightboxVideoTitle);
+        src = "./fisheye_photos/media/" + currentMediaArray[currentIndex].video;
     }
+    const lighboxFactory = new MediaFactory(src, currentMediaArray.id, currentMediaArray.alt);
+    const lightboxMedia = lighboxFactory.createMedia();
+    lightboxMediaCell.appendChild(lightboxMedia);
 }
 
 export function previousButton() {
-    const lightboxImg = document.getElementById("lightbox__body__media__img");
-    if (currentIndex ===0) {
-        currentIndex = currentMediaArray.length-1;
-        lightboxImg.src = "./fisheye_photos/media/" + currentMediaArray[currentIndex].image;
+    const lightboxMediaCell = document.getElementById("lightbox__body__media");
+    lightboxMediaCell.innerHTML = "";
+    let src = "" ;
+    if (currentIndex ===0) {  // si on est sur le premier media alors aller au dernier//
+        currentIndex = currentMediaArray.length-1;        
     } 
-    else {
-        currentIndex -= 1;    
-        lightboxImg.src = "./fisheye_photos/media/" + currentMediaArray[currentIndex].image;
-    
+    else {           //sinon allez simplement au précédent //
+        currentIndex -= 1;        
     }
-    
+    if (currentMediaArray[currentIndex].image !== undefined) {
+        const lightboxImgTitle = document.createElement("p");
+        lightboxImgTitle.setAttribute("class", "lightbox__body__media__title");
+        lightboxImgTitle.innerText = currentMediaArray[currentIndex].alt;
+        lightboxMediaCell.appendChild(lightboxImgTitle);
+        src = "./fisheye_photos/media/" + currentMediaArray[currentIndex].image;
+
+    } else {
+        const lightboxVideoTitle = document.createElement("p");
+        lightboxVideoTitle.innerText = currentMediaArray[currentIndex].alt;
+        lightboxMediaCell.appendChild(lightboxVideoTitle);
+        src = "./fisheye_photos/media/" + currentMediaArray[currentIndex].video;
+    }
+    const lighboxFactory = new MediaFactory(src, currentMediaArray.id, currentMediaArray.alt);
+    const lightboxMedia = lighboxFactory.createMedia();
+    lightboxMediaCell.appendChild(lightboxMedia);
 }
 
 
