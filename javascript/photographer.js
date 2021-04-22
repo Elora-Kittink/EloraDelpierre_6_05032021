@@ -2,7 +2,7 @@ import {data} from "./data.js";
 import {launchLightbox} from "./lightbox.js";
 import MediaFactory from "./MediaFactory.js";
 
-let sum = 0;
+
 
 
 
@@ -162,6 +162,7 @@ function addDateInGalleryMedia (date, galleryInfo) {
 }
 
 function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
+    let sum = 0;
     let counter = likes;
     let likesArray = mediaArray.map((media) => {  // tableau contenant tous les likes de chaque media//
         return media.likes;
@@ -175,13 +176,13 @@ function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
     mediaHeart.setAttribute("aria-label", "likes");  //ARIA titre pour icone coeur//
     galleryInfo.appendChild(mediaHeart);
     let footerTotalLikes = document.getElementById("footer-profile__likes__total");
-    sum = likesArray.reduce((acc, cur) => acc + cur, 0); 
+    sum = likesArray.reduce((acc, cur) => acc + cur, 0);  //on fait la somme de tous les likes du tableau//
     footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">"; //affciher le total des likes de tous les medias//
     console.log("addLikesInGalleryMedia");
     function counterIncrement() { //fonction ajout de like//
         counter++; //on ajoute un like//
         mediaLikes.innerHTML = counter; //on affiche le nouveau nombre de likes//   
-        sum++ ;        
+        sum++ ;   //on ajoute le like à la somme//
         footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">"; // affiche dans le footer la somme trouvée suivie de l'icone coeur//
         console.log(counter);
         console.log(sum);
