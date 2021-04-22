@@ -2,7 +2,7 @@ import {data} from "./data.js";
 import {launchLightbox} from "./lightbox.js";
 import MediaFactory from "./MediaFactory.js";
 
-
+let sum = 0;
 
 
 
@@ -163,28 +163,29 @@ function addDateInGalleryMedia (date, galleryInfo) {
 
 function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
     let counter = likes;
-    const likesArray = mediaArray.map((media) => {  // tableau contenant tous les likes de chaque media//
+    let likesArray = mediaArray.map((media) => {  // tableau contenant tous les likes de chaque media//
         return media.likes;
     }) ; 
-    const mediaLikes = document.createElement("p");    
+    let mediaLikes = document.createElement("p");    
     mediaLikes.setAttribute("class", "gallery__media__info__likes");  
-    mediaLikes.innerHTML = likes;      
+    mediaLikes.innerHTML = counter;      
     galleryInfo.appendChild(mediaLikes);
     const mediaHeart = document.createElement("i");
     mediaHeart.setAttribute("class", "fas fa-heart");
     mediaHeart.setAttribute("aria-label", "likes");  //ARIA titre pour icone coeur//
     galleryInfo.appendChild(mediaHeart);
-    const footerTotalLikes = document.getElementById("footer-profile__likes__total");
-    const sum = likesArray.reduce((acc, cur) => acc + cur, 0); 
+    let footerTotalLikes = document.getElementById("footer-profile__likes__total");
+    sum = likesArray.reduce((acc, cur) => acc + cur, 0); 
     footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">"; //affciher le total des likes de tous les medias//
+    console.log("addLikesInGalleryMedia");
     function counterIncrement() { //fonction ajout de like//
         counter++; //on ajoute un like//
-        mediaLikes.innerHTML = counter; //on affiche le nouveau nombre de likes//
-        likesArray.push(1); // on ajouter  like au tableau//
-        footerTotalLikes.innerHTML = ""; //on remet à vide//
-        const sum = likesArray.reduce((acc, cur) => acc + cur, 0); // somme de tous les likes du tableau//
+        mediaLikes.innerHTML = counter; //on affiche le nouveau nombre de likes//   
+        sum++ ;        
         footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">"; // affiche dans le footer la somme trouvée suivie de l'icone coeur//
-    } 
+        console.log(counter);
+        console.log(sum);
+    }
     mediaHeart.addEventListener("click", counterIncrement);
     
 }

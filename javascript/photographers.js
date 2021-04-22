@@ -4,7 +4,7 @@ let allTags = ["portrait", "art", "fashion", "architecture", "travel", "sport", 
 
 
 export async function displayPhotographers() { 
-    const dataFile = await fetch("./data.json");   //methode fetch pour récuperer json//
+    const dataFile = await fetch("./data.json");   //methode fetch pour récuperer json//    
     const data = await dataFile.json();
     console.log(dataFile);
     const url= window.location.search;  // url courant //
