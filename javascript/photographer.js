@@ -3,7 +3,7 @@ import {launchLightbox} from "./lightbox.js";
 import MediaFactory from "./MediaFactory.js";
 
 let sum = 0;
-
+let currentElementFormFocus = null;
 
 
 
@@ -64,29 +64,31 @@ export function displayGallery() {
     let selectedOption = document.getElementById("sort__dropdown__selected");
     selectedOption.innerHTML = "Popularité";
     selectedOption.addEventListener("click", function() {
-        dropdownOptions.style.display = "none";
+        dropdownOptions.style.display = "block";
     })
     const popularityOption = document.getElementById("sort__dropdown__options__popularity");
     popularityOption.addEventListener("click", function() {
-        selectedOption.innerHTML = "Popularité";
+        selectedOption.innerHTML = "Popularité " + "   <i class=\"fas fa-chevron-down\">";
         mediaArray.sort(function(a, b){  // trier par nombre de likes//
             return b.likes-a.likes    
         });
         addMediasInGallery(mediaArray);
+        dropdownOptions.style.display = "none";
     });
     const dateOption = document.getElementById("sort__dropdown__options__date");
     dateOption.addEventListener("click", function() {
         console.log(mediaArray)
-        selectedOption.innerHTML = "Date";
+        selectedOption.innerHTML = "Date " + "   <i class=\"fas fa-chevron-down\">";
         mediaArray.sort(function(a, b){ //trier par date la plus récente vers la moins récente//
             let dateA=new Date(a.date), dateB=new Date(b.date)
             return dateA-dateB             
         });
         addMediasInGallery(mediaArray);
+        dropdownOptions.style.display = "none";
     });
     const titleOption = document.getElementById("sort__dropdown__options__title");
     titleOption.addEventListener("click", function() {
-        selectedOption.innerHTML = "Titre";
+        selectedOption.innerHTML = "Titre " + "   <i class=\"fas fa-chevron-down\">";
         mediaArray.sort(function(a, b){ // trier par ordre alphabetique//
             let titleA=a.alt.toLowerCase(), titleB=b.alt.toLowerCase()
             if (titleA < titleB) 
@@ -96,6 +98,7 @@ export function displayGallery() {
             return 0 
         });
         addMediasInGallery(mediaArray);
+        dropdownOptions.style.display = "none";
     });
     // if (sortButton.value === "popularity") { // si option tri par popularité choisie//
     //     mediaArray.sort(function(a, b){  // trier par nombre de likes//
@@ -254,15 +257,39 @@ function launchForm(name) {
     bodyProfile.setAttribute("aria-hidden", "true"); //tout le body est caché et illisibe pour les lecteurs d'écrans//
     bodyProfile.setAttribute("class", "no-scroll");
     containerForm.setAttribute("aria-hidden", "false"); //le formulaire devient lui lisible//
-    closeFormBtn.focus();
+    const firstnameInput = document.getElementById("contact__form__firstname__input");
+    const lastnameInput = document.getElementById("contact__form__lastname__input");
+    const emailInput = document.getElementById("contact__form__email__input");
+    const messageInput = document.getElementById("contact__form__message__input");
     submitFormBtn.addEventListener("click", function(e) {  // affiche le contenu des champs au submit//
         e.preventDefault();
-        console.log(document.getElementById("contact__form__firstname__input").value);
-        console.log(document.getElementById("contact__form__lastname__input").value);
-        console.log(document.getElementById("contact__form__email__input").value);
-        console.log(document.getElementById("contact__form__message__input").value);
+        console.log(firstnameInput.value);
+        console.log(lastnameInput.value);
+        console.log(emailInput.value);
+        console.log(messageInput.value);
         closeForm();
     })
+    
+    window.addEventListener("keydown", function(e){
+        if(e.keycode == 9){
+            if(currentElementFormFocus == closeFormBtn){
+                firstnameInput.focus();
+                currentElementFormFocus = firstnameInput;
+            } else if (currentElementFormFocus == firstnameInput){
+                lastnameInput.focus();
+                currentElementFormFocus = lastnameInput;
+            } else if (currentElementFormFocus == lastnameInput){
+                emailInput.focus();
+                currentElementFormFocus = emailInput;
+            } else if (currentElementFormFocus == emailInput){
+                messageInput.focus();
+                currentElementFormFocus = messageInput;
+            } else {
+                closeFormBtn.focus();
+                currentElementFormFocus = closeFormBtn;
+            }
+        }
+    });
 }
 
 function closeForm() {

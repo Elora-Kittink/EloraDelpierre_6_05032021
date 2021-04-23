@@ -39,7 +39,7 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
     lightboxCloseBtn.addEventListener("click", closeLightbox) ;
     const LightboxNextBtn = document.getElementById("lightbox__body__nextbtn");
     const lightboxPreviousBtn = document.getElementById("lightbox__body__prevbtn");
-    lightboxModal.addEventListener("keydown", function(e){
+    window.addEventListener("keydown", function(e){
         if(e.keycode == 9) {
             if(currentElementFocus == lightboxCloseBtn){
                 LightboxNextBtn.focus();
@@ -50,10 +50,9 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
             } else {
                 lightboxCloseBtn.focus();
                 currentElementFocus = lightboxCloseBtn;
-            }
-            
+            }            
         }
-    })
+    });
 }
   
 function closeLightbox() {
