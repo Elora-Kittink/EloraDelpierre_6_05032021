@@ -14,22 +14,35 @@
     <main>
         <section id="photographer-profile" aria-label="profile du photographe">   
             <div id="photographer-profile__container"> 
-                <h1 id="photographer-profile__name"></h1>
-                <p id="photographer-profile__location"></p>
-                <p id="photographer-profile__tagline"></p>
+                <h1 id="photographer-profile__name" ></h1>
+                <p id="photographer-profile__location" ></p>
+                <p id="photographer-profile__tagline" ></p>
                 <p id="photographer-profile__tags" lang="en"></p>
             </div>
             <button id="photographer-profile__btn" aria-label="contact me"></button>
             <img id="photographer-profile__portrait">    
+            <div class="footer-profile" >
+                <div class="footer-profile__likes">
+                    <p id="footer-profile__likes__total"></p>
+                </div>
+                <div>
+                    <p class="footer-profile__price">300€/jour</i></p>
+                </div>
+            </div>
         </section>
-        
+
         <section id="sort">   
-            <label for="sort__select">Trier par </label> <!--aria-expanded pour indiquer qu'il est déroulé-->
-            <select id="sort__select" name="">
-                <option value="popularity" selected>Popularité</option>
-                <option value="date">Date</option>
-                <option value="title">Titre</option>
-            </select>
+            <label for="sort__dropdown">Trier par </label> <!--aria-expanded pour indiquer qu'il est déroulé-->
+            <div id="sort__dropdown">
+                <div id="sort__dropdown__selected" tabindex="0" role="button" aria-label="listbox" aria-haspopup="true"> <i class="fas fa-chevron-down"></i></div>
+                <div id="sort__dropdown__options">
+                    <p id="sort__dropdown__options__popularity" tabindex="0"> Popularité <i class="fas fa-chevron-up"></i></p>
+                    <hr>
+                    <p id="sort__dropdown__options__date" tabindex="0">Date</p>
+                    <hr>
+                    <p id="sort__dropdown__options__title" tabindex="0">Titre</p>
+                </div>
+            </div>
         </section>
         <section id="gallery" aria-label="Gallerie">
         </section>        
@@ -61,13 +74,5 @@
             <button id="contact__form__submitbtn" type="submit" aria-label="send" >Envoyer</button>
         </form>
     </div>
-    <script src="./javascript/index.js" type="module"></script>
-    <footer class="footer-profile">
-        <div class="footer-profile__likes">
-            <p id="footer-profile__likes__total"></p>
-        </div>
-        <div>
-            <p class="footer-profile__price">300€/jour</i></p>
-        </div>
-    </footer>  
+    <script src="./javascript/index.js" type="module"></script> 
 </body>

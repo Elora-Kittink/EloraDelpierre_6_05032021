@@ -24,6 +24,7 @@ class ImageFactory {
         mediaImage.setAttribute("alt", this.alt + ", closeup view");
         mediaImage.setAttribute("class", "gallery__media__image" + " lightbox__body__media__img");
         mediaImage.setAttribute("id", this.id);
+        mediaImage.setAttribute("aria-haspopup", "dialog");
         return mediaImage;
     }
 }
@@ -43,6 +44,7 @@ class VideoFactory {
         mediaVideo.alt = this.alt ;
         mediaVideo.setAttribute("class", "gallery__media__video" + " lightbox__body__media__video");
         mediaVideo.id = this.id;
+        mediaVideo.setAttribute("aria-haspopup", "dialog");
         mediaVideo.appendChild(mediaVideoSrc);
         return mediaVideo;
     }

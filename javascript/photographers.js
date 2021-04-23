@@ -63,7 +63,7 @@ function addLocationInPhotographerCell(country, city, photographersCell) {
 function addTaglineInPhotographerCell(tagline, photographersCell) {
     const photographersTagline = document.createElement("p");
     photographersTagline.textContent = tagline;
-    photographersTagline.setAttribute("class", "photographers__tagline")
+    photographersTagline.setAttribute("class", "photographers__tagline");
     photographersCell.appendChild(photographersTagline);
 }
 

@@ -2,12 +2,14 @@ import MediaFactory from "./MediaFactory.js";
 
 let currentIndex = -1;
 let currentMediaArray = [];
+let currentElementFocus = null;
 
 export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= infos de l'image cliquée */
     const dataFile = await fetch("./data.json");   //methode fetch pour récuperer json//
     const data = await dataFile.json();
-    const lightboxBody = document.getElementById("lightbox__body");
+    const lightboxBody = document.getElementById("lightbox__body"); 
     const lightboxModal = document.getElementById("lightbox");
+    lightboxModal.setAttribute("aria-hidden", "false");
     const lightboxMediaCell = document.getElementById("lightbox__body__media");
     currentIndex = mediaArray.findIndex((el) => {return el.id === id}); /*trouver dans le tableau mediaArray l'index de l'element dont l'id est égale a l'élément */
     currentMediaArray = mediaArray;
@@ -33,8 +35,25 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
     const lightboxFactory = new MediaFactory(src, id, alt);
     const lightboxMedia = lightboxFactory.createMedia();
     lightboxMediaCell.appendChild(lightboxMedia);
-    const lightboxCloseBtn = document.getElementById("lightbox__body__closebtn");   
+    const lightboxCloseBtn = document.getElementById("lightbox__body__closebtn");     
     lightboxCloseBtn.addEventListener("click", closeLightbox) ;
+    const LightboxNextBtn = document.getElementById("lightbox__body__nextbtn");
+    const lightboxPreviousBtn = document.getElementById("lightbox__body__prevbtn");
+    lightboxModal.addEventListener("keydown", function(e){
+        if(e.keycode == 9) {
+            if(currentElementFocus == lightboxCloseBtn){
+                LightboxNextBtn.focus();
+                currentElementFocus = LightboxNextBtn;
+            }else if (currentElementFocus == LightboxNextBtn){
+                lightboxPreviousBtn.focus();
+                currentElementFocus = lightboxPreviousBtn;
+            } else {
+                lightboxCloseBtn.focus();
+                currentElementFocus = lightboxCloseBtn;
+            }
+            
+        }
+    })
 }
   
 function closeLightbox() {

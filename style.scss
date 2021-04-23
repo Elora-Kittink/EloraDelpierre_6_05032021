@@ -41,8 +41,9 @@ $greydrak: #525252;
                 padding-right: 8px;
                 padding-top: 2px;
                 padding-bottom: 2px;
-                position: sticky;
+                position: fixed;
                 top: 10px;
+                z-index: 10;
                 
             }
             &__hashtag {
@@ -290,6 +291,60 @@ $greydrak: #525252;
             &__select > option[selected] {
                 display: none;
             }
+            //  ----------------------------------------------------------------------//
+            &__dropdown {
+                
+                &__selected {
+                    background-color: #911C1C;
+                    border-radius: 5px;
+                    color: white;
+                    font-size: 1.125em;
+                    font-weight: 700;
+                    height: 55px;
+                    width: 170px;
+                }
+                &__options {
+                    width: 170px;
+                    height: 170px;
+                    background-color: #911C1C;
+                    border-radius: 5px;
+                    color: white;
+                    font-size: 1em;
+                    font-weight: 700;
+                    // display: none;
+                    hr {
+                        border: 0,5px white solid;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+                    &__popularity {
+                        padding-left: 20px;
+                        color: white;
+                        padding-top: 15px;
+                        margin-bottom: 10px;
+                        border: none;
+                        // padding: 0;
+                        background: none;
+                    }
+                    &__date {
+                        padding-left: 20px;
+                        margin-top: 15px;
+                        margin-bottom: 15px;
+                        border: none;
+                        // padding: 0;
+                        background: none;
+                        color: white;
+                    }
+                    &__title {
+                        padding-left: 20px;
+                        margin-top: 10px;
+                        border: none;
+                        // padding: 0;
+                        background: none;
+                        color: white;
+                    }
+                }
+            }
         }
 
         #gallery {
@@ -320,11 +375,13 @@ $greydrak: #525252;
                     margin-top: 7px;
                     height: 31px;
                     overflow: hidden;
-                    &__title {                      
+                    &__title {         
+                        display: block;             
                         font-weight: 400;
                         justify-self: flex-start;
                         margin-right: auto;
                         width: 225px;
+
                     }
                     &__price {
                        font-weight: 500;
@@ -341,6 +398,11 @@ $greydrak: #525252;
                         font-size: 1.25em;
                         margin-top: 5px;
                     }
+                    .fa-heart:hover,
+                    // .fa-heart:focus {
+                    //     color: #DB8876;
+                    //     text-decoration: none;
+                    // }
                 }
             }
                 
@@ -357,14 +419,14 @@ $greydrak: #525252;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color:white;
+        background-color:transparent;
         display: none;
         justify-content: center;
         align-items: center;
         &__body {
             height: 900px;
             width: 1050px;
-            background-color: white;
+            background-color: transparent;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -373,7 +435,11 @@ $greydrak: #525252;
                 order: 1;
                 margin-bottom: 50px;
                 font-size: 3em;
-            }        
+            } 
+            &__prevbtn:hover,
+            &__prevbtn:focus {
+                color: #DB8876;
+            }       
             &__media {
                 height: auto;
                 width: auto;
@@ -399,11 +465,18 @@ $greydrak: #525252;
                 margin-bottom: 50px;
                 font-size: 3em;
             }
+            &__nextbtn:hover, 
+            &__nextbtn:focus {
+                color: #DB8876;
+            }
             &__closebtn {
                 order: 4;
                 align-self: flex-start;
                 font-size: 2.5em;
-
+            }
+            &__closebtn:hover,
+            &__closebtn:focus {
+                color: #DB8876;
             }
         }         
     }
@@ -524,9 +597,9 @@ $greydrak: #525252;
 
 /*---------------------------------FOOTER-------------------------------------*/
     .footer-profile {
-        position: sticky;
+        position: fixed;
         bottom: 0px;
-        left: 50px;
+        right: 50px;
         margin-left: auto;
         display: flex;
         justify-content: space-between;

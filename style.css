@@ -34,8 +34,9 @@
   padding-right: 8px;
   padding-top: 2px;
   padding-bottom: 2px;
-  position: sticky;
+  position: fixed;
   top: 10px;
+  z-index: 10;
 }
 #body__index header #nav__hashtag {
   display: flex;
@@ -273,6 +274,52 @@
 #body__profile main #sort__select > option[selected] {
   display: none;
 }
+#body__profile main #sort__dropdown__selected {
+  background-color: #911C1C;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.125em;
+  font-weight: 700;
+  height: 55px;
+  width: 170px;
+}
+#body__profile main #sort__dropdown__options {
+  width: 170px;
+  height: 170px;
+  background-color: #911C1C;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+  font-weight: 700;
+}
+#body__profile main #sort__dropdown__options hr {
+  border: 0, 5px white solid;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#body__profile main #sort__dropdown__options__popularity {
+  padding-left: 20px;
+  color: white;
+  padding-top: 15px;
+  margin-bottom: 10px;
+  border: none;
+  background: none;
+}
+#body__profile main #sort__dropdown__options__date {
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: none;
+  background: none;
+  color: white;
+}
+#body__profile main #sort__dropdown__options__title {
+  padding-left: 20px;
+  margin-top: 10px;
+  border: none;
+  background: none;
+  color: white;
+}
 #body__profile main #gallery {
   display: grid;
   grid-template-columns: 350px 350px 350px;
@@ -300,8 +347,10 @@
   margin-top: 7px;
   height: 31px;
   overflow: hidden;
+  .fa-heart: hover;
 }
 #body__profile main #gallery .gallery__media__info__title {
+  display: block;
   font-weight: 400;
   justify-self: flex-start;
   margin-right: auto;
@@ -331,7 +380,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: transparent;
   display: none;
   justify-content: center;
   align-items: center;
@@ -339,7 +388,7 @@
 #lightbox__body {
   height: 900px;
   width: 1050px;
-  background-color: white;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -349,6 +398,9 @@
   order: 1;
   margin-bottom: 50px;
   font-size: 3em;
+}
+#lightbox__body__prevbtn:hover, #lightbox__body__prevbtn:focus {
+  color: #DB8876;
 }
 #lightbox__body__media {
   height: auto;
@@ -375,10 +427,16 @@
   margin-bottom: 50px;
   font-size: 3em;
 }
+#lightbox__body__nextbtn:hover, #lightbox__body__nextbtn:focus {
+  color: #DB8876;
+}
 #lightbox__body__closebtn {
   order: 4;
   align-self: flex-start;
   font-size: 2.5em;
+}
+#lightbox__body__closebtn:hover, #lightbox__body__closebtn:focus {
+  color: #DB8876;
 }
 
 /*------------------------------FORMULAIRE CONTACT-------------------------*/
@@ -487,9 +545,9 @@
 
 /*---------------------------------FOOTER-------------------------------------*/
 .footer-profile {
-  position: sticky;
+  position: fixed;
   bottom: 0px;
-  left: 50px;
+  right: 50px;
   margin-left: auto;
   display: flex;
   justify-content: space-between;

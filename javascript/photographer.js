@@ -2,6 +2,7 @@ import {data} from "./data.js";
 import {launchLightbox} from "./lightbox.js";
 import MediaFactory from "./MediaFactory.js";
 
+let sum = 0;
 
 
 
@@ -37,6 +38,7 @@ function completePhotographerProfile (photographerSelected, tags) {  // tags = t
     photographerProfilePortrait.setAttribute("alt", photographerSelected.alt);
     const contactFormBtn = document.getElementById("photographer-profile__btn");
     contactFormBtn.textContent = "contactez-moi";
+    contactFormBtn.setAttribute("aria-haspopup", "dialog");
     contactFormBtn.addEventListener("click", function() {
         launchForm(photographerSelected.name);
     });
@@ -56,20 +58,35 @@ export function displayGallery() {
     const gallery = document.getElementById("gallery");
     gallery.innerHTML = "";
     // trier le mediaArray
-    const sortButton = document.querySelector("select");
-    sortButton.addEventListener("change", displayGallery)
-    if (sortButton.value === "popularity") { // si option tri par popularité choisie//
+    // const sortButton = document.querySelector("select");
+    // sortButton.addEventListener("change", displayGallery)
+    const dropdownOptions = document.getElementById("sort__dropdown__options");
+    let selectedOption = document.getElementById("sort__dropdown__selected");
+    selectedOption.innerHTML = "Popularité";
+    selectedOption.addEventListener("click", function() {
+        dropdownOptions.style.display = "none";
+    })
+    const popularityOption = document.getElementById("sort__dropdown__options__popularity");
+    popularityOption.addEventListener("click", function() {
+        selectedOption.innerHTML = "Popularité";
         mediaArray.sort(function(a, b){  // trier par nombre de likes//
-            return b.likes-a.likes
-        })
-    }
-    else if (sortButton.value === "date") { //si option tri par date choisie//
+            return b.likes-a.likes    
+        });
+        addMediasInGallery(mediaArray);
+    });
+    const dateOption = document.getElementById("sort__dropdown__options__date");
+    dateOption.addEventListener("click", function() {
+        console.log(mediaArray)
+        selectedOption.innerHTML = "Date";
         mediaArray.sort(function(a, b){ //trier par date la plus récente vers la moins récente//
             let dateA=new Date(a.date), dateB=new Date(b.date)
-            return dateA-dateB 
-        })
-    }
-    else if (sortButton.value === "title") { //si option tri par titre choisie//
+            return dateA-dateB             
+        });
+        addMediasInGallery(mediaArray);
+    });
+    const titleOption = document.getElementById("sort__dropdown__options__title");
+    titleOption.addEventListener("click", function() {
+        selectedOption.innerHTML = "Titre";
         mediaArray.sort(function(a, b){ // trier par ordre alphabetique//
             let titleA=a.alt.toLowerCase(), titleB=b.alt.toLowerCase()
             if (titleA < titleB) 
@@ -77,31 +94,63 @@ export function displayGallery() {
             if (titleA > titleB)
                 return 1
             return 0 
-        })
-    }
+        });
+        addMediasInGallery(mediaArray);
+    });
+    // if (sortButton.value === "popularity") { // si option tri par popularité choisie//
+    //     mediaArray.sort(function(a, b){  // trier par nombre de likes//
+    //         return b.likes-a.likes
+    //     })
+    // }
+    // else if (sortButton.value === "date") { //si option tri par date choisie//
+    //     mediaArray.sort(function(a, b){ //trier par date la plus récente vers la moins récente//
+    //         let dateA=new Date(a.date), dateB=new Date(b.date)
+    //         return dateA-dateB 
+    //     })
+    // }
+    // else if (sortButton.value === "title") { //si option tri par titre choisie//
+    //     mediaArray.sort(function(a, b){ // trier par ordre alphabetique//
+    //         let titleA=a.alt.toLowerCase(), titleB=b.alt.toLowerCase()
+    //         if (titleA < titleB) 
+    //             return -1 
+    //         if (titleA > titleB)
+    //             return 1
+    //         return 0 
+    //     })
+    // }
     
+    //Simule le click sur popularity, le filtre par défaut
+    const clickEvent = new Event("click");
+    popularityOption.dispatchEvent(clickEvent);
+    
+    
+}
+
+function addMediasInGallery(mediaArray) {
+    //remet à vide la gallerie pour une mise à jour (filtre)
+    const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
+
     for (let media of mediaArray) { // pour chaque média du tableau de media du photographe selectionné//
-            const link = document.createElement("a");
-            link.setAttribute("href", "#");
-            link.setAttribute("id", media.id)
-            const galleryMedia = document.createElement("div");
-            galleryMedia.setAttribute("class", "gallery__media");
-            gallery.appendChild(galleryMedia);
-            galleryMedia.appendChild(link);
-            const galleryInfo = document.createElement("div");
-            galleryInfo.setAttribute("class", "gallery__media__info");
-            galleryMedia.appendChild(galleryInfo);
-            link.addEventListener("click", function() {
-                launchLightbox(media.id, media.image, media.video, mediaArray, media.alt);
-            });
-            addImageInGalleryMedia(media, media.image, link, media.alt, media.id, media.video);
-            addTitleInGalleryMedia(media.alt, galleryInfo);
-            addPriceInGalleryMedia(media.price, galleryInfo);
-            addDateInGalleryMedia(media.date, galleryInfo);
-            addLikesInGalleryMedia(media.likes, galleryInfo, mediaArray);
+        const link = document.createElement("a");
+        link.setAttribute("href", "#");
+        link.setAttribute("id", media.id)
+        const galleryMedia = document.createElement("div");
+        galleryMedia.setAttribute("class", "gallery__media");
+        gallery.appendChild(galleryMedia);
+        galleryMedia.appendChild(link);
+        const galleryInfo = document.createElement("div");
+        galleryInfo.setAttribute("class", "gallery__media__info");
+        galleryMedia.appendChild(galleryInfo);
+        link.addEventListener("click", function() {
+            launchLightbox(media.id, media.image, media.video, mediaArray, media.alt);
+        });
+        addImageInGalleryMedia(media, media.image, link, media.alt, media.id, media.video);
+        addTitleInGalleryMedia(media.alt, galleryInfo);
+        addPriceInGalleryMedia(media.price, galleryInfo);
+        addDateInGalleryMedia(media.date, galleryInfo);
+        addLikesInGalleryMedia(media.likes, galleryInfo, mediaArray);
     }
-    
-    
 }
 
 function addImageInGalleryMedia (media, image, link, alt, id, video) {
@@ -140,7 +189,7 @@ function addImageInGalleryMedia (media, image, link, alt, id, video) {
 
 function addTitleInGalleryMedia (alt, galleryInfo) {
     const mediaTitle = document.createElement("title");
-    mediaTitle.setAttribute("class", "gallery__media__info__title");    
+    mediaTitle.setAttribute("class", "gallery__media__info__title"); 
     mediaTitle.setAttribute("lang", "en");
     galleryInfo.appendChild(mediaTitle);
     mediaTitle.innerHTML = alt;
@@ -150,7 +199,7 @@ function addTitleInGalleryMedia (alt, galleryInfo) {
 function addPriceInGalleryMedia (price, galleryInfo) {
     const mediaPrice = document.createElement("div");
     mediaPrice.setAttribute("class", "gallery__media__info__price");
-    mediaPrice.setAttribute("aria-label", "prix de l'oeuvre")
+    mediaPrice.setAttribute("aria-label", "prix de l'oeuvre");    
     galleryInfo.appendChild(mediaPrice);
     mediaPrice.innerHTML = price + " €";
 }
@@ -162,30 +211,28 @@ function addDateInGalleryMedia (date, galleryInfo) {
 }
 
 function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
-    let sum = 0;
+    
     let counter = likes;
     let likesArray = mediaArray.map((media) => {  // tableau contenant tous les likes de chaque media//
         return media.likes;
     }) ; 
     let mediaLikes = document.createElement("p");    
-    mediaLikes.setAttribute("class", "gallery__media__info__likes");  
+    mediaLikes.setAttribute("class", "gallery__media__info__likes"); 
     mediaLikes.innerHTML = counter;      
     galleryInfo.appendChild(mediaLikes);
     const mediaHeart = document.createElement("i");
     mediaHeart.setAttribute("class", "fas fa-heart");
     mediaHeart.setAttribute("aria-label", "likes");  //ARIA titre pour icone coeur//
+    mediaHeart.setAttribute("tabindex", "0");
     galleryInfo.appendChild(mediaHeart);
     let footerTotalLikes = document.getElementById("footer-profile__likes__total");
     sum = likesArray.reduce((acc, cur) => acc + cur, 0);  //on fait la somme de tous les likes du tableau//
     footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">"; //affciher le total des likes de tous les medias//
-    console.log("addLikesInGalleryMedia");
     function counterIncrement() { //fonction ajout de like//
         counter++; //on ajoute un like//
         mediaLikes.innerHTML = counter; //on affiche le nouveau nombre de likes//   
         sum++ ;   //on ajoute le like à la somme//
         footerTotalLikes.innerHTML = sum + "<i class=\"fas fa-heart\">"; // affiche dans le footer la somme trouvée suivie de l'icone coeur//
-        console.log(counter);
-        console.log(sum);
     }
     mediaHeart.addEventListener("click", counterIncrement);
     
