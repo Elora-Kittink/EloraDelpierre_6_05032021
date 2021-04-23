@@ -598,13 +598,17 @@
     justify-content: center;
     font-size: 0.75em;
     text-align: center;
+    margin-left: 23px;
+  }
+  #body__index header #nav__hashtag a {
+    margin: 2px;
   }
 
   .main__index {
     max-width: 400px;
   }
   .main__index h1 {
-    top: -165px;
+    top: -190px;
     right: 22px;
     font-size: 0.875em;
     font-weight: 400;
@@ -616,12 +620,15 @@
     align-items: center;
     justify-content: space-between;
   }
-  .main__index #photographers__grid #photographer {
+  .main__index #photographers__grid .photographers {
     margin-bottom: 20px;
   }
-  .main__index #photographers__grid #photographer__portrait {
+  .main__index #photographers__grid .photographers__portrait {
     width: 200px;
     height: 200px;
+  }
+  .main__index #photographers__grid .photographers__name {
+    font-size: 2.25em;
   }
 
   #body__profile {
@@ -635,6 +642,7 @@
   #body__profile main #photographer-profile {
     max-width: 500px;
     background-color: white;
+    height: 150px;
   }
   #body__profile main #photographer-profile__container {
     padding-top: 5px;
@@ -643,25 +651,30 @@
   }
   #body__profile main #photographer-profile__name {
     font-size: 2.25em;
+    margin: 0px;
   }
   #body__profile main #photographer-profile__location {
     font-size: 0.8125em;
+    margin: 0px;
   }
   #body__profile main #photographer-profile__tagline {
     font-size: 0.8125em;
+    margin: 0px;
   }
   #body__profile main #photographer-profile__tags {
     font-size: 0.8125em;
+    margin-top: 5px;
   }
   #body__profile main #photographer-profile button {
     position: fixed;
     bottom: 20px;
-    left: 50%;
-    right: 50%;
+    margin-left: 15%;
   }
   #body__profile main #photographer-profile img {
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: auto;
+    margin-top: 0px;
   }
   #body__profile main #sort {
     display: none;
@@ -670,8 +683,34 @@
     display: flex;
     flex-direction: column;
   }
+  #body__profile main #gallery .gallery__media__image {
+    width: 335px;
+    height: 190px;
+  }
+  #body__profile main #gallery .gallery__media__video {
+    width: 335px;
+    height: 190px;
+  }
+  #body__profile main #gallery .gallery__media__info {
+    justify-content: flex-start;
+  }
+  #body__profile main #gallery .gallery__media__info__title {
+    margin: 0px;
+    width: 200px;
+    font-size: 0.875em;
+  }
+  #body__profile main #gallery .gallery__media__info__price {
+    font-size: 0.75em;
+  }
+  #body__profile main #gallery .gallery__media__info__likes {
+    font-size: 0.75em;
+  }
+  #body__profile main #gallery .gallery__media__info .fa-heart {
+    font-size: 0.75em;
+    margin-top: 4px;
+  }
   #body__profile .footer-profile {
-    position: static;
+    display: none;
   }
 }
 
