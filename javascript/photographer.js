@@ -257,9 +257,9 @@ function launchForm(name) {
     bodyProfile.setAttribute("aria-hidden", "true"); //tout le body est caché et illisibe pour les lecteurs d'écrans//
     bodyProfile.setAttribute("class", "no-scroll");
     containerForm.setAttribute("aria-hidden", "false"); //le formulaire devient lui lisible//
-    const firstnameInput = document.getElementById("contact__form__firstname__input");
-    const lastnameInput = document.getElementById("contact__form__lastname__input");
-    const emailInput = document.getElementById("contact__form__email__input");
+    const firstnameInput = document.getElementById("contact__form__info__firstname__input");
+    const lastnameInput = document.getElementById("contact__form__info__lastname__input");
+    const emailInput = document.getElementById("contact__form__info__email__input");
     const messageInput = document.getElementById("contact__form__message__input");
     submitFormBtn.addEventListener("click", function(e) {  // affiche le contenu des champs au submit//
         e.preventDefault();
@@ -267,12 +267,14 @@ function launchForm(name) {
         console.log(lastnameInput.value);
         console.log(emailInput.value);
         console.log(messageInput.value);
+        bodyProfile.removeAttribute("class", "no-scroll");
         closeForm();
     })
     
     window.addEventListener("keydown", function(e){
-        if(e.keycode == 9){
-            if(currentElementFormFocus == closeFormBtn){
+        console.log(currentElementFormFocus);
+        if(e.key == "Tab"){
+            if(currentElementFormFocus == closeFormBtn){                
                 firstnameInput.focus();
                 currentElementFormFocus = firstnameInput;
             } else if (currentElementFormFocus == firstnameInput){
@@ -284,10 +286,14 @@ function launchForm(name) {
             } else if (currentElementFormFocus == emailInput){
                 messageInput.focus();
                 currentElementFormFocus = messageInput;
+            } else if (currentElementFormFocus == messageInput) {
+                submitFormBtn.focus();
+                currentElementFormFocus = submitFormBtn;
             } else {
                 closeFormBtn.focus();
                 currentElementFormFocus = closeFormBtn;
             }
+            console.log(currentElementFormFocus)
         }
     });
 }
@@ -295,6 +301,7 @@ function launchForm(name) {
 function closeForm() {
     const containerForm = document.getElementById("contact");
     containerForm.style.display = "none";
+    document.getElementById("body__profile").removeAttribute("class", "no-scroll");
 }
  
 

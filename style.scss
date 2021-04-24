@@ -432,13 +432,13 @@ $greydrak: #525252;
             justify-content: center;
             align-items: center;
             color: #901C1C;
+            position: relative;
             &__prevbtn {
                 order: 1;
                 margin-bottom: 50px;
                 font-size: 3em;
             } 
-            &__prevbtn:hover,
-            &__prevbtn:focus {
+            &__prevbtn:focus i {
                 color: #DB8876;
             }       
             &__media {
@@ -465,18 +465,19 @@ $greydrak: #525252;
                 order: 3;
                 margin-bottom: 50px;
                 font-size: 3em;
-            }
-            &__nextbtn:hover, 
-            &__nextbtn:focus {
+            } 
+            &__nextbtn:focus i {
                 color: #DB8876;
             }
-            &__closebtn {
+            &__closebtn  {
                 order: 4;
                 align-self: flex-start;
                 font-size: 2.5em;
+                position: absolute;
+                top: 150px;
+                right: 0px;
             }
-            &__closebtn:hover,
-            &__closebtn:focus {
+            &__closebtn:focus i {
                 color: #DB8876;
             }
         }         
@@ -521,7 +522,7 @@ $greydrak: #525252;
             font-size: 2.625em;
             color: white;
         }
-        &__closebtn:focus {
+        &__closebtn:focus i {
             color: #901C1C;
         }
         &__info {

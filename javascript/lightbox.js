@@ -9,7 +9,7 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
     const data = await dataFile.json();
     const lightboxBody = document.getElementById("lightbox__body"); 
     const lightboxModal = document.getElementById("lightbox");
-    lightboxModal.setAttribute("aria-hidden", "false");
+    lightboxModal.setAttribute("aria-hidden", "false");    
     const lightboxMediaCell = document.getElementById("lightbox__body__media");
     currentIndex = mediaArray.findIndex((el) => {return el.id === id}); /*trouver dans le tableau mediaArray l'index de l'element dont l'id est égale a l'élément */
     currentMediaArray = mediaArray;
@@ -17,6 +17,9 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
     lightboxBody.appendChild(lightboxMediaCell);
     lightboxModal.style.display = "flex";
     let src ="" ;
+    const bodyProfile = document.getElementById("body__profile");
+    bodyProfile.setAttribute("class", "no-scroll");
+    bodyProfile.setAttribute("aria-hidden", "true");
     if(image !== undefined) { //si c'est une image//
         const lightboxImgTitle = document.createElement("p");       
         src = "./fisheye_photos/media/" + image;        
@@ -37,26 +40,36 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
     lightboxMediaCell.appendChild(lightboxMedia);
     const lightboxCloseBtn = document.getElementById("lightbox__body__closebtn");     
     lightboxCloseBtn.addEventListener("click", closeLightbox) ;
-    const LightboxNextBtn = document.getElementById("lightbox__body__nextbtn");
+    const lightboxNextBtn = document.getElementById("lightbox__body__nextbtn");
     const lightboxPreviousBtn = document.getElementById("lightbox__body__prevbtn");
     window.addEventListener("keydown", function(e){
-        if(e.keycode == 9) {
+        console.log(e)
+        if(e.key == "Tab") {
             if(currentElementFocus == lightboxCloseBtn){
-                LightboxNextBtn.focus();
-                currentElementFocus = LightboxNextBtn;
-            }else if (currentElementFocus == LightboxNextBtn){
+                console.log("J'étais sur close, je suis sur next")
+                lightboxNextBtn.focus();
+                currentElementFocus = lightboxNextBtn;
+            } else if (currentElementFocus == lightboxNextBtn){
+                console.log("J'étais sur next, je suis sur prev")
                 lightboxPreviousBtn.focus();
                 currentElementFocus = lightboxPreviousBtn;
-            } else {
+            } else if (currentElementFocus == lightboxPreviousBtn){
+                console.log("J'étais sur prev, je suis sur close")
                 lightboxCloseBtn.focus();
                 currentElementFocus = lightboxCloseBtn;
-            }            
+            } else {
+                console.log("J'étais sur j'sais nin, je suis sur close")
+                lightboxCloseBtn.focus();
+                currentElementFocus = lightboxCloseBtn;
+            }   
+            console.log(currentElementFocus);        
         }
     });
 }
   
 function closeLightbox() {
     const lightboxModal = document.getElementById("lightbox");
+    document.getElementById("body__profile").removeAttribute("class", "no-scroll");
     lightboxModal.style.display = "none"; 
     console.log("test2");
 }

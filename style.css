@@ -399,13 +399,14 @@
   justify-content: center;
   align-items: center;
   color: #901C1C;
+  position: relative;
 }
 #lightbox__body__prevbtn {
   order: 1;
   margin-bottom: 50px;
   font-size: 3em;
 }
-#lightbox__body__prevbtn:hover, #lightbox__body__prevbtn:focus {
+#lightbox__body__prevbtn:focus i {
   color: #DB8876;
 }
 #lightbox__body__media {
@@ -433,15 +434,18 @@
   margin-bottom: 50px;
   font-size: 3em;
 }
-#lightbox__body__nextbtn:hover, #lightbox__body__nextbtn:focus {
+#lightbox__body__nextbtn:focus i {
   color: #DB8876;
 }
 #lightbox__body__closebtn {
   order: 4;
   align-self: flex-start;
   font-size: 2.5em;
+  position: absolute;
+  top: 150px;
+  right: 0px;
 }
-#lightbox__body__closebtn:hover, #lightbox__body__closebtn:focus {
+#lightbox__body__closebtn:focus i {
   color: #DB8876;
 }
 
@@ -485,7 +489,7 @@
   font-size: 2.625em;
   color: white;
 }
-#contact__form__closebtn:focus {
+#contact__form__closebtn:focus i {
   color: #901C1C;
 }
 #contact__form__info {
