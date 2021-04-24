@@ -290,6 +290,9 @@
   text-align: center;
   padding-top: 15px;
 }
+#body__profile main #sort__dropdown__selected:hover, #body__profile main #sort__dropdown__selected:focus {
+  color: #D3775C;
+}
 #body__profile main #sort__dropdown__options {
   position: absolute;
   top: 0;
@@ -315,16 +318,25 @@
   margin-bottom: 10px;
   margin-top: 0px;
 }
+#body__profile main #sort__dropdown__options__popularity:hover, #body__profile main #sort__dropdown__options__popularity:focus {
+  color: #D3775C;
+}
 #body__profile main #sort__dropdown__options__date {
   padding-left: 20px;
   margin-top: 15px;
   margin-bottom: 15px;
   color: white;
 }
+#body__profile main #sort__dropdown__options__date:hover, #body__profile main #sort__dropdown__options__date:focus {
+  color: #D3775C;
+}
 #body__profile main #sort__dropdown__options__title {
   padding-left: 20px;
   margin-top: 10px;
   color: white;
+}
+#body__profile main #sort__dropdown__options__title:hover, #body__profile main #sort__dropdown__options__title:focus {
+  color: #D3775C;
 }
 #body__profile main #gallery {
   display: grid;
@@ -405,9 +417,13 @@
   order: 1;
   margin-bottom: 50px;
   font-size: 3em;
+  background-color: transparent;
+  color: #911C1C;
+  border: none;
 }
-#lightbox__body__prevbtn:focus i {
+#lightbox__body__prevbtn:hover, #lightbox__body__prevbtn:focus i {
   color: #DB8876;
+  border: none;
 }
 #lightbox__body__media {
   height: auto;
@@ -433,9 +449,13 @@
   order: 3;
   margin-bottom: 50px;
   font-size: 3em;
+  background-color: transparent;
+  color: #911C1C;
+  border: none;
 }
-#lightbox__body__nextbtn:focus i {
+#lightbox__body__nextbtn:hover, #lightbox__body__nextbtn:focus i {
   color: #DB8876;
+  border: none;
 }
 #lightbox__body__closebtn {
   order: 4;
@@ -444,9 +464,13 @@
   position: absolute;
   top: 150px;
   right: 0px;
+  background-color: transparent;
+  color: #911C1C;
+  border: none;
 }
-#lightbox__body__closebtn:focus i {
+#lightbox__body__closebtn:hover, #lightbox__body__closebtn:focus i {
   color: #DB8876;
+  border: none;
 }
 
 /*------------------------------FORMULAIRE CONTACT-------------------------*/
@@ -483,13 +507,15 @@
   margin-bottom: 20px;
 }
 #contact__form__closebtn {
+  background-color: transparent;
+  border: none;
   position: absolute;
   top: 40px;
   right: 35px;
   font-size: 2.625em;
   color: white;
 }
-#contact__form__closebtn:focus i {
+#contact__form__closebtn:hover, #contact__form__closebtn:focus i {
   color: #901C1C;
 }
 #contact__form__info {

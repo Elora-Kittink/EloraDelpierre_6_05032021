@@ -57,14 +57,16 @@ export function displayGallery() {
     } );
     const gallery = document.getElementById("gallery");
     gallery.innerHTML = "";
-    // trier le mediaArray
-    // const sortButton = document.querySelector("select");
-    // sortButton.addEventListener("change", displayGallery)
     const dropdownOptions = document.getElementById("sort__dropdown__options");
     let selectedOption = document.getElementById("sort__dropdown__selected");
     selectedOption.innerHTML = "Popularité";
     selectedOption.addEventListener("click", function() {
         dropdownOptions.style.display = "block";
+    })
+    selectedOption.addEventListener("keydown", function(e){
+        if (e.key == "Enter") {
+            dropdownOptions.style.display = "block";
+        }
     })
     const popularityOption = document.getElementById("sort__dropdown__options__popularity");
     popularityOption.addEventListener("click", function() {
@@ -75,9 +77,18 @@ export function displayGallery() {
         addMediasInGallery(mediaArray);
         dropdownOptions.style.display = "none";
     });
+    popularityOption.addEventListener("keydown", function(e){
+        if(e.key == "Enter"){
+            selectedOption.innerHTML = "Popularité " + "   <i class=\"fas fa-chevron-down\">";
+        mediaArray.sort(function(a, b){  // trier par nombre de likes//
+            return b.likes-a.likes    
+        });
+        addMediasInGallery(mediaArray);
+        dropdownOptions.style.display = "none";
+        }
+    })
     const dateOption = document.getElementById("sort__dropdown__options__date");
     dateOption.addEventListener("click", function() {
-        console.log(mediaArray)
         selectedOption.innerHTML = "Date " + "   <i class=\"fas fa-chevron-down\">";
         mediaArray.sort(function(a, b){ //trier par date la plus récente vers la moins récente//
             let dateA=new Date(a.date), dateB=new Date(b.date)
@@ -86,6 +97,17 @@ export function displayGallery() {
         addMediasInGallery(mediaArray);
         dropdownOptions.style.display = "none";
     });
+    dateOption.addEventListener("keydown", function(e){
+        if(e.key == "Enter") {
+            selectedOption.innerHTML = "Date " + "   <i class=\"fas fa-chevron-down\">";
+        mediaArray.sort(function(a, b){ //trier par date la plus récente vers la moins récente//
+            let dateA=new Date(a.date), dateB=new Date(b.date)
+            return dateA-dateB             
+        });
+        addMediasInGallery(mediaArray);
+        dropdownOptions.style.display = "none";
+        }
+    })
     const titleOption = document.getElementById("sort__dropdown__options__title");
     titleOption.addEventListener("click", function() {
         selectedOption.innerHTML = "Titre " + "   <i class=\"fas fa-chevron-down\">";
@@ -100,27 +122,21 @@ export function displayGallery() {
         addMediasInGallery(mediaArray);
         dropdownOptions.style.display = "none";
     });
-    // if (sortButton.value === "popularity") { // si option tri par popularité choisie//
-    //     mediaArray.sort(function(a, b){  // trier par nombre de likes//
-    //         return b.likes-a.likes
-    //     })
-    // }
-    // else if (sortButton.value === "date") { //si option tri par date choisie//
-    //     mediaArray.sort(function(a, b){ //trier par date la plus récente vers la moins récente//
-    //         let dateA=new Date(a.date), dateB=new Date(b.date)
-    //         return dateA-dateB 
-    //     })
-    // }
-    // else if (sortButton.value === "title") { //si option tri par titre choisie//
-    //     mediaArray.sort(function(a, b){ // trier par ordre alphabetique//
-    //         let titleA=a.alt.toLowerCase(), titleB=b.alt.toLowerCase()
-    //         if (titleA < titleB) 
-    //             return -1 
-    //         if (titleA > titleB)
-    //             return 1
-    //         return 0 
-    //     })
-    // }
+    titleOption.addEventListener("keydown", function(e){
+        if(e.key == "Enter"){
+            selectedOption.innerHTML = "Titre " + "   <i class=\"fas fa-chevron-down\">";
+        mediaArray.sort(function(a, b){ // trier par ordre alphabetique//
+            let titleA=a.alt.toLowerCase(), titleB=b.alt.toLowerCase()
+            if (titleA < titleB) 
+                return -1 
+            if (titleA > titleB)
+                return 1
+            return 0 
+        });
+        addMediasInGallery(mediaArray);
+        dropdownOptions.style.display = "none";
+        }
+    })
     
     //Simule le click sur popularity, le filtre par défaut
     const clickEvent = new Event("click");
@@ -167,26 +183,6 @@ function addImageInGalleryMedia (media, image, link, alt, id, video) {
     const mediaFactory = new MediaFactory(src, id, alt);
     const mediaElement = mediaFactory.createMedia();
     link.appendChild(mediaElement);
-
-
-    // if (media.image !== undefined) {  // si le media est une image//
-    //     const mediaImage = document.createElement("img");
-    //     mediaImage.setAttribute("src", "./fisheye_photos/media/" + image);
-    //     mediaImage.setAttribute("alt", alt + ", closeup view");
-    //     mediaImage.setAttribute("class", "gallery__media__image");
-    //     mediaImage.setAttribute("id", id);
-    //     link.appendChild(mediaImage);
-    // } else if (media.video !== undefined) { //si le media est une video//
-    //     const mediaVideo = document.createElement("video");
-    //     const mediaVideoSrc = document.createElement("source");
-    //     mediaVideoSrc.setAttribute("src", "./fisheye_photos/media/" + video);
-    //     mediaVideoSrc.setAttribute("type", "video/mp4");
-    //     mediaVideo.setAttribute("alt", alt + ", closeup view");
-    //     mediaVideo.setAttribute("class", "gallery__media__video");
-    //     mediaVideo.setAttribute("id", id);
-    //     link.appendChild(mediaVideo);
-    //     mediaVideo.appendChild(mediaVideoSrc);
-    // }
     
 }
 
