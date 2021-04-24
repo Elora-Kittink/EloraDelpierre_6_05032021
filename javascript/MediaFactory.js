@@ -2,7 +2,6 @@
 
 export default class MediaFactory {
     constructor(src, id, alt) {
-        console.log(src);
         if (src.includes("jpg")){
             return new ImageFactory(src, id, alt);
         } else {

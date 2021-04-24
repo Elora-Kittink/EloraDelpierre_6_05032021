@@ -43,26 +43,20 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
     const lightboxNextBtn = document.getElementById("lightbox__body__nextbtn");
     const lightboxPreviousBtn = document.getElementById("lightbox__body__prevbtn");
     window.addEventListener("keydown", function(e){
-        console.log(e)
         if(e.key == "Tab") {
             if(currentElementFocus == lightboxCloseBtn){
-                console.log("J'étais sur close, je suis sur next")
                 lightboxNextBtn.focus();
                 currentElementFocus = lightboxNextBtn;
             } else if (currentElementFocus == lightboxNextBtn){
-                console.log("J'étais sur next, je suis sur prev")
                 lightboxPreviousBtn.focus();
                 currentElementFocus = lightboxPreviousBtn;
             } else if (currentElementFocus == lightboxPreviousBtn){
-                console.log("J'étais sur prev, je suis sur close")
                 lightboxCloseBtn.focus();
                 currentElementFocus = lightboxCloseBtn;
             } else {
-                console.log("J'étais sur j'sais nin, je suis sur close")
                 lightboxCloseBtn.focus();
                 currentElementFocus = lightboxCloseBtn;
-            }   
-            console.log(currentElementFocus);        
+            }         
         }
     });
 }
@@ -71,7 +65,6 @@ function closeLightbox() {
     const lightboxModal = document.getElementById("lightbox");
     document.getElementById("body__profile").removeAttribute("class", "no-scroll");
     lightboxModal.style.display = "none"; 
-    console.log("test2");
 }
 
 export function nextButton() {

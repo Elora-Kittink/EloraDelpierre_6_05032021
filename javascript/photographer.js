@@ -242,7 +242,6 @@ function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
 
 function launchForm(name) {
     const containerForm = document.getElementById("contact");
-    const form = document.getElementById("contact__form");
     containerForm.style.display = "block"; // affiche la modale en la passant de "none" à "block"//
     const closeFormBtn = document.getElementById("contact__form__closebtn");
     closeFormBtn.addEventListener("click", closeForm);
@@ -268,7 +267,6 @@ function launchForm(name) {
     })
     
     window.addEventListener("keydown", function(e){
-        console.log(currentElementFormFocus);
         if(e.key == "Tab"){
             if(currentElementFormFocus == closeFormBtn){                
                 firstnameInput.focus();
@@ -289,7 +287,6 @@ function launchForm(name) {
                 closeFormBtn.focus();
                 currentElementFormFocus = closeFormBtn;
             }
-            console.log(currentElementFormFocus)
         }
     });
 }

@@ -1,12 +1,7 @@
 
-
-let allTags = ["portrait", "art", "fashion", "architecture", "travel", "sport", "animals", "events"]
-
-
 export async function displayPhotographers() { 
     const dataFile = await fetch("./data.json");   //methode fetch pour récuperer json//    
     const data = await dataFile.json();
-    console.log(dataFile);
     const url= window.location.search;  // url courant //
     const urlParams = new URLSearchParams(url); // pour pouvoir utiliser get //
     const tag = urlParams.get("tag"); // = ce qui se trouve immédiatement après "tag"//
@@ -75,7 +70,6 @@ function addPriceInPhotographerCell(price, photographersCell) {
 }
 
 function addTagsInPhotographerCell(tags, photographersCell) {
-    console.log(tags);
     const photographersTags = document.createElement("div");
     photographersTags.classList.add("photographers__tags");
     for (let tag of tags) {   
