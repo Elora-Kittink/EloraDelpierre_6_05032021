@@ -1,4 +1,3 @@
-import {data} from "./data.js";
 import {launchLightbox} from "./lightbox.js";
 import MediaFactory from "./MediaFactory.js";
 
@@ -47,7 +46,9 @@ function completePhotographerProfile (photographerSelected, tags) {  // tags = t
 
  
 
-export function displayGallery() {
+export async function displayGallery() {
+    const dataFile = await fetch("./data.json");   //methode fetch pour récuperer json//
+    const data = await dataFile.json();
     const url = window.location.search; /* url courant*/
     const urlParams = new URLSearchParams(url); /*outil de recherche dans url */
     const id = urlParams.get("id"); /*recuperer ce qu'il y a apres "id" */
