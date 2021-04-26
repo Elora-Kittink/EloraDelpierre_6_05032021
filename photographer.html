@@ -32,15 +32,15 @@
         </section>
 
         <section id="sort">   
-            <label for="sort__dropdown">Trier par </label> <!--aria-expanded pour indiquer qu'il est déroulé-->
-            <div id="sort__dropdown">
+            <label for="sort__dropdown" id="sort-title">Trier par </label> <!--aria-expanded pour indiquer qu'il est déroulé-->
+            <div id="sort__dropdown" aria-labelledby="sort-title">
                 <div id="sort__dropdown__selected" tabindex="0" role="button" aria-label="listbox" aria-haspopup="true"><i class="fas fa-chevron-down"></i></div>
                 <div id="sort__dropdown__options">
-                    <p id="sort__dropdown__options__popularity" tabindex="0"> Popularité          <i class="fas fa-chevron-up"></i></p>
+                    <p id="sort__dropdown__options__popularity" tabindex="0" aria-label="trier par popularité"> Popularité          <i class="fas fa-chevron-up"></i></p>
                     <hr>
-                    <p id="sort__dropdown__options__date" tabindex="0">Date</p>
+                    <p id="sort__dropdown__options__date" tabindex="0" aria-label="trier par date">Date</p>
                     <hr>
-                    <p id="sort__dropdown__options__title" tabindex="0">Titre</p>
+                    <p id="sort__dropdown__options__title" tabindex="0" aria-label="trier par titre">Titre</p>
                 </div>
             </div>
         </section>
@@ -60,7 +60,7 @@
         <form action="" id="contact__form" aria-labelledby="form-title">
             <h1 id="form-title">Contactez-moi</h1>
             <p id="contact__form__photographer"></p>
-            <button id="contact__form__closebtn"><i class="fas fa-times" role="button" aria-label="close contact form"></i></button> 
+            <button id="contact__form__closebtn" aria-label="photographe contacté"><i class="fas fa-times" role="button" aria-label="close contact form"></i></button> 
             <div id="contact__form__info" role="group" aria-labelledby="coordonnées">
                 <label id="contact__form__info__firstname__label" for="firstname">Prénom</label>
                 <input id="contact__form__info__firstname__input" type="text" name="firstname" required>

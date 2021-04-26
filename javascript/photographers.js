@@ -78,7 +78,8 @@ function addTagsInPhotographerCell(tags, photographersCell) {
         photographersTag.classList.add("photographers__tag");
         photographersTags.appendChild(photographersTag);
         photographersTag.setAttribute("href", "#");
-        photographersTag.setAttribute("aria-label", "tag");
+        photographersTag.setAttribute("aria-label", "tag" + tag);
+        photographersTag.setAttribute("lang", "en");
     }
     photographersCell.appendChild(photographersTags);
 }

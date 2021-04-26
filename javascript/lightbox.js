@@ -49,6 +49,7 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
                 currentElementFocus = lightboxNextBtn;
             } else if (currentElementFocus == lightboxNextBtn){
                 lightboxPreviousBtn.focus();
+                console.log(currentElementFocus);
                 currentElementFocus = lightboxPreviousBtn;
             } else if (currentElementFocus == lightboxPreviousBtn){
                 lightboxCloseBtn.focus();

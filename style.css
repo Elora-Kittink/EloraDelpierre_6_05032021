@@ -1,7 +1,6 @@
 /*------------------------------------- INDEX ----------------------------------*/
 #body__index {
   font-family: "DM Sans", sans-serif;
-  width: 1750px;
   padding-left: 70px;
   padding-right: 70px;
   margin: 0px;
@@ -37,6 +36,10 @@
   position: fixed;
   top: 10px;
   z-index: 10;
+}
+#body__index header #nav__contentlink:hover, #body__index header #nav__contentlink:focus {
+  background-color: #911C1C;
+  color: white;
 }
 #body__index header #nav__hashtag {
   display: flex;
@@ -82,13 +85,13 @@
   right: 100px;
 }
 .main__index #photographers__grid {
-  height: 950px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .main__index #photographers__grid .photographers {
-  width: 500px;
+  margin-top: 30px;
+  width: 420px;
 }
 .main__index #photographers__grid .photographers__link {
   text-decoration: none;
@@ -610,28 +613,24 @@
   margin: 30px;
 }
 
-@media screen and (max-width: 500px) {
-  #body__index {
-    padding: 0px;
-    max-width: 400px;
-  }
-  #body__index header {
+@media screen and (max-width: 1500px) {
+  header {
     flex-direction: column;
   }
-  #body__index header .fisheye__logo {
+  header .fisheye__logo {
     width: 150px;
     height: 37.5px;
     margin-left: 20px;
     margin-top: 40px;
   }
-  #body__index header #nav {
+  header #nav {
     margin: auto;
     margin-top: 30px;
   }
-  #body__index header #nav__contentlink {
+  header #nav__contentlink {
     display: none;
   }
-  #body__index header #nav__hashtag {
+  header #nav__hashtag {
     width: 70%;
     flex-wrap: wrap;
     justify-content: center;
@@ -639,12 +638,20 @@
     text-align: center;
     margin-left: 23px;
   }
-  #body__index header #nav__hashtag a {
+  header #nav__hashtag a {
     margin: 2px;
   }
+}
+@media screen and (max-width: 1000px) {
+  #body__index {
+    padding: 0px;
+  }
+  #body__index header #nav {
+    margin: 0px;
+  }
 
-  .main__index {
-    max-width: 400px;
+  .main__index #photographers__grid {
+    justify-content: center;
   }
   .main__index h1 {
     top: -190px;
@@ -652,6 +659,12 @@
     font-size: 0.875em;
     font-weight: 400;
   }
+}
+@media screen and (max-width: 500px) {
+  #body__index {
+    padding: 0px;
+  }
+
   .main__index #photographers__grid {
     display: flex;
     flex-direction: column;
@@ -661,6 +674,7 @@
   }
   .main__index #photographers__grid .photographers {
     margin-bottom: 20px;
+    width: 320px;
   }
   .main__index #photographers__grid .photographers__portrait {
     width: 200px;
