@@ -174,10 +174,12 @@ $greydrak: #525252;
 
 /*------------------------------PHOTOGRAPHE PAGE--------------------------------*/
 
-
+#body__container {
+    max-width: 1240px;
+    margin: 0px auto;
+}
 #body__profile {
     font-family: "DM Sans", sans-serif;
-    width: 1750px;
     padding-left: 70px;
     padding-right: 70px;
     margin: 0px;
@@ -187,7 +189,7 @@ $greydrak: #525252;
         img {
             width: 200px;
             height: 50px;
-            margin-left: 260px;
+            
             margin-right: 50px;
             margin-top: 25px;
         }
@@ -195,7 +197,6 @@ $greydrak: #525252;
     main {
         margin-top: 40px;
         #photographer-profile {
-            width: 1240px;
             height: 313px;
             background-color: $greylight;
             margin: auto;   
@@ -277,7 +278,7 @@ $greydrak: #525252;
         }
 
         #sort {
-            margin-left: 255px;
+    
             margin-top: 20px;
             margin-bottom: 50px;
             font-size: 1.125em;
@@ -362,13 +363,13 @@ $greydrak: #525252;
         }
 
         #gallery {
-            display: grid;
-            grid-template-columns: 350px 350px 350px;
-            grid-column-gap: 95px;
-            grid-row-gap: 20px;
-            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+
+            justify-content: space-between;
 
             .gallery__media {
+                margin-bottom: 20px;
                 &__image {
                     width: 350px;
                     height: 300px;
@@ -518,17 +519,19 @@ $greydrak: #525252;
     bottom: 0;
     left: 0;
     background-color:rgba(196, 196, 196, 0.4);
-    display: none;    
+    display: none;  
+    padding: 20px;  
     &__form {
         position: relative;
-        width: 500px;
-        height: 700px;
+        max-width: 500px;
+        max-height: 700px;
         background-color: #DB8876;
         margin: auto;
         padding: 30px;
         display: flex;
         flex-direction: column;
         margin-top: 60px;
+        
         h1 {
             font-size: 3.4375em;
             font-weight: 400;
@@ -561,8 +564,8 @@ $greydrak: #525252;
                 }
                 &__firstname__input {
                     font-size: 2.25em; 
-                    width: 400px;
-                    height: 68px;
+                    max-width: 400px;
+                    max-height: 68px;
                     font-weight: 400;
                     border-radius: 5px;
                     border: transparent;
@@ -572,8 +575,8 @@ $greydrak: #525252;
                 }
                 &__lastname__input {
                     font-size: 2.25em;
-                    width: 400px;
-                    height: 68px;
+                    max-width: 400px;
+                    max-height: 68px;
                     border-radius: 5px;
                     font-weight: 400;
                     border: transparent;
@@ -583,8 +586,8 @@ $greydrak: #525252;
                 }
                 &__email__input {
                     font-size: 2.25em;
-                    width: 400px;
-                    height: 68px;
+                    max-width: 400px;
+                    max-height: 68px;
                     border-radius: 5px;
                     font-weight: 400;
                     border: transparent;
@@ -597,8 +600,8 @@ $greydrak: #525252;
         }
         &__message__input {
             font-size: 2.25em;
-            width: 400px;
-            height: 170px;
+            max-width: 400px;
+            max-height: 170px;
             border-radius: 5px;
             font-weight: 400;
             border: transparent;
@@ -608,11 +611,12 @@ $greydrak: #525252;
             font-weight: 700;
             color: white;
             background-color: #911C1C;
-            width: 170px;
-            height: 69px;
+            max-width: 170px;
+            max-height: 69px;
             border-radius: 5px;
             margin-top: 26px;
             border: transparent;
+            padding : 20px
         }
         &__submitbtn:hover, 
         &__submitbtn:focus{
@@ -718,7 +722,7 @@ $greydrak: #525252;
 
 
 @media screen and (max-width: 500px) {
-      //----------------------Index----------------------------------//
+     
     #body__index {
         padding: 0px;
         
@@ -746,25 +750,26 @@ $greydrak: #525252;
             }
         }
     }
+}
     //-----------------------------page photographe--------------------------//
+@media screen and (max-width:1050px) {
 
     #body__profile {
-        max-width: 500px;
-        padding-left: 20px;
-        padding-right: 20px;
+     
+        padding-left: 10px;
+        padding-right: 10px;
         .fisheye__logo {
             margin-left: auto;
         }
         main {
             #photographer-profile {
-                max-width: 500px;
+              
                 background-color: white;
                 height: 150px;
                 &__container {
                     padding-top: 5px;
                     padding-left: 5px;
-                    margin-right: 5px;
-
+                    margin: 0;
                 }
                 &__name {
                     font-size: 2.25em;
@@ -785,7 +790,7 @@ $greydrak: #525252;
                 button {
                     position: fixed;
                     bottom: 20px;
-                    margin-left: 15%;
+                    margin-left: 25%;
                 }
                 img {
                     max-width: 100px;
@@ -797,39 +802,7 @@ $greydrak: #525252;
             #sort {
                 display: none;
             }
-            #gallery {
-                display: flex;
-                flex-direction: column;
-                .gallery__media {
-                    &__image {
-                        width: 335px;
-                        height: 190px;
-                    }
-                    &__video {
-                        width: 335px;
-                        height: 190px;
-                    }
-                    &__info {
-                        justify-content: flex-start;
-                        &__title {
-                            margin: 0px;
-                            width: 200px;
-                            font-size: 0.8750em;                            
-                        }
-                        &__price {
-                            font-size: 0.75em;
-                        }
-                        &__likes {
-                            font-size: 0.75em;
-                        }
-                        .fa-heart {
-                            font-size: 0.75em;
-                            margin-top: 4px;
-                        }
-                    }
-                }
-
-            }
+            
         }
         .footer-profile {
             display: none;
@@ -837,3 +810,90 @@ $greydrak: #525252;
     }
 }
 
+@media screen and (max-width: 800px) {
+  
+  #body__profile {
+      main {
+          #photographer-profile {
+              margin-bottom: 30px;
+          }
+        #gallery {
+            flex-direction: column;
+            align-items: center;
+              
+      .gallery__media {
+      
+          &__image {
+              width: 300px;
+              height: 170px;
+          }
+          &__video {
+              width: 300px;
+              height: 170px;
+          }
+          &__info {
+              justify-content: flex-start;
+              &__title {
+                  margin: 0px;
+                  width: 200px;
+                  font-size: 0.8750em;                            
+              }
+              &__price {
+                  font-size: 0.75em;
+              }
+              &__likes {
+                  font-size: 0.75em;
+              }
+              .fa-heart {
+                  font-size: 0.75em;
+                  margin-top: 4px;
+              }
+          }
+      }
+
+  }
+      }
+  }
+    #contact {
+
+        &__form {
+            h1{
+                font-size: 2em;
+            }
+            &__photographer {
+                font-size: 2em;
+            }
+            &__info {
+               
+                &__firstname__label {
+                    font-size: 1.6em;
+                }
+                &__firstname__input {
+                    font-size: 1.6em; 
+                    
+                }
+                &__lastname__label {
+                    font-size: 1.6em;
+                }
+                &__lastname__input {
+                    font-size: 1.6em;
+                 
+                }
+                &__email__label {
+                    font-size: 1.6em;
+                }
+                &__email__input {
+                    font-size: 1.6em;
+                    
+                }
+            }
+            &__message__label {
+                font-size: 1.6em;
+            }
+            &__message__input {
+                font-size: 1.6em;
+                
+            }
+        }
+    }
+}

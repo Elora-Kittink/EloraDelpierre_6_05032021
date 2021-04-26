@@ -45,16 +45,20 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
     window.addEventListener("keydown", function(e){
         if(e.key == "Tab") {
             if(currentElementFocus == lightboxCloseBtn){
+                e.preventDefault();
                 lightboxNextBtn.focus();
                 currentElementFocus = lightboxNextBtn;
             } else if (currentElementFocus == lightboxNextBtn){
+                e.preventDefault();
                 lightboxPreviousBtn.focus();
                 console.log(currentElementFocus);
                 currentElementFocus = lightboxPreviousBtn;
             } else if (currentElementFocus == lightboxPreviousBtn){
+                e.preventDefault();
                 lightboxCloseBtn.focus();
                 currentElementFocus = lightboxCloseBtn;
             } else {
+                e.preventDefault();
                 lightboxCloseBtn.focus();
                 currentElementFocus = lightboxCloseBtn;
             }         

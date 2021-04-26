@@ -268,22 +268,28 @@ function launchForm(name) {
     
     window.addEventListener("keydown", function(e){
         if(e.key == "Tab"){
-            if(currentElementFormFocus == closeFormBtn){                
+            if(currentElementFormFocus == closeFormBtn){   
+                e.preventDefault();       
                 firstnameInput.focus();
                 currentElementFormFocus = firstnameInput;
             } else if (currentElementFormFocus == firstnameInput){
+                e.preventDefault();
                 lastnameInput.focus();
                 currentElementFormFocus = lastnameInput;
             } else if (currentElementFormFocus == lastnameInput){
+                e.preventDefault();
                 emailInput.focus();
                 currentElementFormFocus = emailInput;
             } else if (currentElementFormFocus == emailInput){
+                e.preventDefault();
                 messageInput.focus();
                 currentElementFormFocus = messageInput;
             } else if (currentElementFormFocus == messageInput) {
+                e.preventDefault();
                 submitFormBtn.focus();
                 currentElementFormFocus = submitFormBtn;
             } else {
+                e.preventDefault();
                 closeFormBtn.focus();
                 currentElementFormFocus = closeFormBtn;
             }
