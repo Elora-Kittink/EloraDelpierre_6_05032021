@@ -25,7 +25,7 @@ export async function displayPhotographers() {
         addTagsInPhotographerCell(photographer.tags, photographersCell);
     }
     let tagSelected = document.getElementById(tag);
-    tagSelected.setAttribute("aria-curent", "page");
+    tagSelected.setAttribute("aria-curent", "page");  
     tagSelected.style.backgroundColor = "#901C1C";
     tagSelected.style.color = "white";
 }

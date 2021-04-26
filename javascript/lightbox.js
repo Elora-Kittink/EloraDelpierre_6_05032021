@@ -44,20 +44,19 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
     const lightboxPreviousBtn = document.getElementById("lightbox__body__prevbtn");
     window.addEventListener("keydown", function(e){
         if(e.key == "Tab") {
-            if(currentElementFocus == lightboxCloseBtn){
+            if(currentElementFocus == lightboxCloseBtn){   //si le focus est sur close il passe ensuite à next//
                 e.preventDefault();
                 lightboxNextBtn.focus();
                 currentElementFocus = lightboxNextBtn;
-            } else if (currentElementFocus == lightboxNextBtn){
+            } else if (currentElementFocus == lightboxNextBtn){ //si le focus est sur next il passe ensuite à prev//
                 e.preventDefault();
                 lightboxPreviousBtn.focus();
-                console.log(currentElementFocus);
                 currentElementFocus = lightboxPreviousBtn;
-            } else if (currentElementFocus == lightboxPreviousBtn){
+            } else if (currentElementFocus == lightboxPreviousBtn){ //si le focus est sur prev il passe ensuite à close//
                 e.preventDefault();
                 lightboxCloseBtn.focus();
                 currentElementFocus = lightboxCloseBtn;
-            } else {
+            } else {    // si le focus n'est ni sur close ni sur prev ni sur next alors il va à close//
                 e.preventDefault();
                 lightboxCloseBtn.focus();
                 currentElementFocus = lightboxCloseBtn;

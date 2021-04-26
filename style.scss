@@ -284,20 +284,6 @@ $greydrak: #525252;
             margin-bottom: 50px;
             font-size: 1.125em;
             font-weight: 700;
-            &__select {
-                appearance: none;
-                color: white;
-                font-size: 1.125em;
-                font-weight: 700;
-                background-color: #911C1C;
-                border-radius: 5px;
-                padding: 8px;
-                border: transparent;
-            }
-            &__select > option[selected] {
-                display: none;
-            }
-            //  ----------------------------------------------------------------------//
             &__dropdown {
                 position: relative;
                 z-index: 10;
@@ -414,11 +400,6 @@ $greydrak: #525252;
                         font-size: 1.25em;
                         margin-top: 5px;
                     }
-                    .fa-heart:hover,
-                    // .fa-heart:focus {
-                    //     color: #DB8876;
-                    //     text-decoration: none;
-                    // }
                 }
             }
                 

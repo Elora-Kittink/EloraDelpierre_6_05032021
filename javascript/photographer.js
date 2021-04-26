@@ -222,7 +222,7 @@ function addLikesInGalleryMedia (likes, galleryInfo, mediaArray) {
     galleryInfo.appendChild(mediaLikes);
     const mediaHeart = document.createElement("i");
     mediaHeart.setAttribute("class", "fas fa-heart");
-    mediaHeart.setAttribute("aria-label", "likes");  //ARIA titre pour icone coeur//
+    mediaHeart.setAttribute("aria-label", "likes");  
     mediaHeart.setAttribute("tabindex", "0");
     galleryInfo.appendChild(mediaHeart);
     let footerTotalLikes = document.getElementById("footer-profile__likes__total");
@@ -269,23 +269,23 @@ function launchForm(name) {
     
     window.addEventListener("keydown", function(e){
         if(e.key == "Tab"){
-            if(currentElementFormFocus == closeFormBtn){   
+            if(currentElementFormFocus == closeFormBtn){ // si le focus est sur close il va à firstname//
                 e.preventDefault();       
                 firstnameInput.focus();
                 currentElementFormFocus = firstnameInput;
-            } else if (currentElementFormFocus == firstnameInput){
+            } else if (currentElementFormFocus == firstnameInput){//si il est sur firstnam il va à lastname//
                 e.preventDefault();
                 lastnameInput.focus();
                 currentElementFormFocus = lastnameInput;
-            } else if (currentElementFormFocus == lastnameInput){
+            } else if (currentElementFormFocus == lastnameInput){ //etc//
                 e.preventDefault();
                 emailInput.focus();
                 currentElementFormFocus = emailInput;
-            } else if (currentElementFormFocus == emailInput){
+            } else if (currentElementFormFocus == emailInput){ //etc//
                 e.preventDefault();
                 messageInput.focus();
                 currentElementFormFocus = messageInput;
-            } else if (currentElementFormFocus == messageInput) {
+            } else if (currentElementFormFocus == messageInput) { //etc//
                 e.preventDefault();
                 submitFormBtn.focus();
                 currentElementFormFocus = submitFormBtn;

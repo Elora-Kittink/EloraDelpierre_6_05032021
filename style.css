@@ -267,19 +267,6 @@
   font-size: 1.125em;
   font-weight: 700;
 }
-#body__profile main #sort__select {
-  appearance: none;
-  color: white;
-  font-size: 1.125em;
-  font-weight: 700;
-  background-color: #911C1C;
-  border-radius: 5px;
-  padding: 8px;
-  border: transparent;
-}
-#body__profile main #sort__select > option[selected] {
-  display: none;
-}
 #body__profile main #sort__dropdown {
   position: relative;
   z-index: 10;
@@ -371,7 +358,6 @@
   margin-top: 7px;
   height: 31px;
   overflow: hidden;
-  .fa-heart: hover;
 }
 #body__profile main #gallery .gallery__media__info__title {
   display: block;

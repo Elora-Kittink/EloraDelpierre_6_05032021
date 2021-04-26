@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/9c2bcb7132.js" crossorigin="anonymous"></script>
 </head>
-<body id="body__profile" aria-hidden="false"> <!--ARIA passe a hidden true quand la modale s'ouvre-->
+<body id="body__profile" aria-hidden="false"> 
     <div id="body__container">
     <header>
        <a href="index.html"><img class="fisheye__logo" src="fisheye_photos/logo.png" alt="Fisheye Home Page"></a>
@@ -35,7 +35,7 @@
         </section>
 
         <section id="sort">   
-            <label for="sort__dropdown" id="sort-title">Trier par </label> <!--aria-expanded pour indiquer qu'il est déroulé-->
+            <label for="sort__dropdown" id="sort-title">Trier par </label>
             <div id="sort__dropdown" aria-labelledby="sort-title">
                 <div id="sort__dropdown__selected" tabindex="0" role="button" aria-label="listbox" aria-haspopup="true"><i class="fas fa-chevron-down"></i></div>
                 <div id="sort__dropdown__options">
@@ -69,9 +69,9 @@
                 <label id="contact__form__info__firstname__label" for="firstname">Prénom</label>
                 <input id="contact__form__info__firstname__input" type="text" name="firstname" required>
                 <label id="contact__form__info__lastname__label" for="lastname">Nom</label>
-                <input id="contact__form__info__lastname__input" type="text" name="lastname" required>   <!--masquer le reste de la page quand la modale est ouverte avec aria-hidden="true"-->
-                <label id="contact__form__info__email__label" for="email">Email</label>    <!--pouvoir fermer la modale avec touche echap-->
-                <input id="contact__form__info__email__input" type="email" name="email" required>  <!--mettre le focus sur la modale quand elle est ouverte-->
+                <input id="contact__form__info__lastname__input" type="text" name="lastname" required>   
+                <label id="contact__form__info__email__label" for="email">Email</label>    
+                <input id="contact__form__info__email__input" type="email" name="email" required>  
             </div>
             <label id="contact__form__message__label" for="message">Votre message</label>
             <input id="contact__form__message__input" type="text">
