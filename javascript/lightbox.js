@@ -62,6 +62,12 @@ export async function launchLightbox(id, image, video, mediaArray, alt) { /* <= 
                 currentElementFocus = lightboxCloseBtn;
             }         
         }
+        if(e.key == "ArrowRight") {
+            nextButton()
+        }
+        if(e.key == "ArrowLeft") {
+            previousButton()
+        }
     });
 }
   
